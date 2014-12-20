@@ -1,0 +1,15 @@
+user: 
+    name: daniel
+    fullname: Daniel Leech
+    email: foo@bar.com
+    mail:
+        user: bar.foo.com
+        server: mail.boo.com
+        dir: ~/Mail
+    mutt:
+        aliases: ~/ownCloud/System/mutt/aliases
+    github:
+        email: {{ user.email }}
+
+server:
+    ssl_fingerprint: FF:FF:FF:FF:FF:FF:FF:FF:FF:FF:FF:FF:FF
