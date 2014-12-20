@@ -1,0 +1,14 @@
+- name: Install packages
+  sudo: True
+  apt: pkg={{ item }} state=present
+  with_items:
+      - "mutt"
+      - "offlineimap"
+      - "msmtp"
+
+- name: Copy dotfiles
+  template: src={{ item }} dest="/home/{{ user.name }}/.{{ item }}" mode=0600
+  with_items:
+      - msmtprc
+      - offlineimaprc
+      - muttrc

@@ -1,0 +1,25 @@
+# Sample minimal config file.  Copy this to ~/.offlineimaprc and edit to
+# suit to get started fast.
+
+[general]
+accounts = {{ user.name }}
+ui = Blinkenlights
+
+[Account {{ user.name }}]
+localrepository = Local
+remoterepository = Remote
+autorefresh = 5
+
+[Repository Local]
+type = Maildir
+localfolders = {{ user.maildir }}
+
+[Repository Remote]
+type = IMAP
+remotehost = {{ user.mailserver }}
+remoteuser = {{ user.mailuser }}
+remotepass = {{ secure.user.mailpassword }}
+ssl=yes 
+cert_fingerprint={{ server.ssl_fingerprint | regex_replace(':', '') }}
+
+folderfilter = lambda foldername: foldername not in ['dovecot.sieve']

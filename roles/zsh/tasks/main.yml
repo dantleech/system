@@ -1,0 +1,18 @@
+- name: Install packages
+  sudo: True
+  apt: pkg={{ item }} state=present
+  with_items:
+      - "zsh"
+
+- name: Install prezto
+  git: repo=https://github.com/sorin-ionescu/prezto.git dest="~/.zprezto" recursive=true
+
+- name: Copy configuration
+  template: src={{ item }} dest="/home/{{ user.name }}/.{{ item }}"
+  with_items:
+      - zlogin
+      - zlogout
+      - zpreztorc
+      - zprofile
+      - zshenv
+      - zshrc

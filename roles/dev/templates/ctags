@@ -1,0 +1,11 @@
+-R
+--exclude=.git
+--exclude=**/cache/**
+--exclude=src/**/vendor/**
+--exclude=src/**/tests/**
+--exclude=src/**/Tests/**
+--exclude=vendor/**/vendor/**
+--exclude=vendor/**/tests/**
+--exclude=vendor/**/Tests/**
+--languages=php
+--fields=+aimS

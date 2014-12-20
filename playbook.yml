@@ -1,0 +1,13 @@
+- hosts: all
+  gather_facts: False
+  roles:
+      - { role: zsh, tags: [zsh]  }
+      - { role: mail, tags: [mail] }
+      - { role: dev, tags: [dev] }
+  vars_files:
+      - "vars/main.yml"
+      - "vars/secure.yml"
+
+- hosts: local
+  gather_facts: False
+  roles:
