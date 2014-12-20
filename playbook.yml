@@ -4,6 +4,9 @@
       - { role: zsh, tags: [zsh]  }
       - { role: mail, tags: [mail] }
       - { role: dev, tags: [dev] }
+      - { role: tmux, tags: [tmux] }
+      - { role: vim, tags: [vim] }
+
   vars_files:
       - "vars/main.yml"
       - "vars/secure.yml"

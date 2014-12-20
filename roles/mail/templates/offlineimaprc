@@ -12,13 +12,13 @@ autorefresh = 5
 
 [Repository Local]
 type = Maildir
-localfolders = {{ user.maildir }}
+localfolders = {{ user.mail.dir }}
 
 [Repository Remote]
 type = IMAP
-remotehost = {{ user.mailserver }}
-remoteuser = {{ user.mailuser }}
-remotepass = {{ secure.user.mailpassword }}
+remotehost = {{ user.mail.server }}
+remoteuser = {{ user.mail.user }}
+remotepass = {{ secure.user.mail.password }}
 ssl=yes 
 cert_fingerprint={{ server.ssl_fingerprint | regex_replace(':', '') }}
 

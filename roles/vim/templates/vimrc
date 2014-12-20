@@ -1,0 +1,294 @@
+set nocompatible               " be iMproved
+filetype off                   " required!
+
+set rtp+=~/.vim/bundle/Vundle.vim
+let g:vundle_default_git_proto = 'git'
+let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips/""
+
+call vundle#begin()
+
+" =============================== "
+" ======== Vundle Config ======== "
+
+" Disabled but interesting ...
+" Plugin 'Shougo/neocomplete' - this plugin cripples vim after a day or so
+"Plugin 'Shougo/neosnippet'
+"Plugin 'Shougo/unite.vim'
+"Plugin 'tsukkee/unite-tag'
+"Plugin 'tpope/vim-surround'
+
+" Utility bundles
+Plugin 'L9'
+Plugin 'vim-scripts/tlib'
+Plugin 'Shougo/vimproc.vim'
+
+" Easy motion - <Leader>ww = forward, <Leader>bb = backwards
+Plugin 'Lokaltog/vim-easymotion'
+
+" Best snippets plugin
+Plugin 'MarcWeber/ultisnips'
+
+" Package manager
+Plugin 'gmarik/vundle'
+
+" Ctrlp - quickly find files, tags and buffers using fuzzy search
+Plugin 'kien/ctrlp.vim'
+
+" Twig syntax highlighting
+Plugin 'evidens/vim-twig'
+
+" Tag bar shows methods and variables of current class (uses ctags)
+Plugin 'majutsushi/tagbar'
+
+" Better javascript support
+Plugin 'pangloss/vim-javascript'
+
+" Nerdtree file browser
+Plugin 'scrooloose/nerdtree'
+
+" Easily comment - <Leader>cc
+Plugin 'scrooloose/nerdcommenter'
+
+" Syntax checking on write
+Plugin 'scrooloose/syntastic'
+
+" Powerful PHP completion (uses ctags)
+Plugin 'shawncplus/phpcomplete.vim'
+
+" Allows text replacement regardless of CaSe
+Plugin 'tpope/vim-abolish'
+
+" GiT integration: Gblame, Gread (reset to git state), Gstatus
+Plugin 'tpope/vim-fugitive'
+
+" Automatically insert use statements and expand class names to FQN
+Plugin 'arnaud-lb/vim-php-namespace'
+
+" Align anything
+Plugin 'junegunn/vim-easy-align'
+
+" Get GITHub activity
+Plugin 'junegunn/vim-github-dashboard'
+
+" PHP Documentation - hit K (shift-k) on any php function
+Plugin 'mudpile45/vim-phpdoc'
+
+" Apply a command on every file in the quickfix list :Qdo %s/Foobar/Barfoo
+Plugin 'henrik/vim-qargs'
+
+" PHPSpec integration
+Plugin 'Herzult/phpspec-vim.git'
+
+" Tern javascript thing
+Plugin 'marijnh/tern_for_vim'
+
+" Vdebug - PHP debugging
+Plugin 'joonty/vdebug'
+
+" phpunit skelgen
+Plugin 'TsonJgoku/vim-phpunit-skelgen'
+
+call vundle#end()
+
+" =============================== "
+" =========== Config ============ "
+
+" show TWIG highlighting
+au BufRead,BufNewFile *.twig set syntax=htmljinja
+
+" Automatically detect filetypes
+filetype plugin indent on
+
+" Indentation
+set autoindent
+set expandtab
+set shiftwidth=4
+set tabstop=4
+set smarttab
+
+" Automatically write file for some commands, like cfile
+set autowrite
+
+" show lines numbers
+set number
+
+" enable real-time searching
+set incsearch
+
+" highlight search matches
+set hlsearch
+
+" set syntax highlighting options.
+syntax on
+let c_space_errors = 1
+let php_sql_query = 1
+let php_sync_method = 0
+let php_folding=0
+let g:DisableAutoPHPFolding = 1
+
+" Nerdtree
+let NERDTreeShowBookmarks = 1
+
+" show TWIG highlighting
+" au BufRead,BufNewFile *.twig set syntax=htmljinja
+
+scriptencoding utf-8
+set history=1000
+set nospell
+set pastetoggle=<F12> 
+
+" status lines
+if has('statusline')
+    set laststatus=2
+
+    " Broken down into easily includeable segments
+    set statusline=%<%f\ " Filename
+    set statusline+=%w%h%m%r " Options
+    set statusline+=%{fugitive#statusline()} " Git Hotness
+    set statusline+=\ [%{&ff}/%Y] " filetype
+    set statusline+=\ [%{getcwd()}] " current dir
+    set statusline+=%=%-14.(%l,%c%V%)\ %p%% " Right aligned file nav info
+endif
+
+" Ignore files
+set wildignore+=*/.git/*,*.cache,*.cache.php,*.swp,*.swo,**/cache/**
+
+" Allow hidden buffers
+set hidden
+
+" CtrlP 
+let g:ctrlp_follow_symlinks = 0
+let g:ctrlp_max_files = 20000
+let g:ctrlp_max_depth = 80
+let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_working_path_mode = ''
+
+" neocachecomplconfig
+" let g:neocomplcache_enable_at_startup=0
+
+" Ultisnip
+let g:snips_author="Daniel Leech <daniel@dantleech.com>"
+
+" Syntastic
+let g:syntastic_javascript_checkers = ['jshint']
+
+" php,pec-vim
+"
+let g:phpspec_run_cmd_options = '--verbose -fpretty'
+
+" Only get tags from CWD
+set tags=tags;
+set tags+=/usr/share/php/PHPUnit/tags
+let g:phpcomplete_parse_docblock_comments = 1
+let g:phpcomplete_complete_for_unknown_classes = 0
+
+" Settings for rst / markdown
+autocmd FileType rst setlocal textwidth=78
+autocmd Filetype markdown setlocal textwidth=78
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+" ======================== "
+" Neo complete config
+" ======================== "
+"
+"Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
+" Disable AutoComplPop.
+let g:acp_enableAtStartup = 0
+" Use neocomplete.
+" let g:neocomplete#enable_at_startup = 0
+" " Use smartcase.
+" let g:neocomplete#enable_smart_case = 1
+" " Set minimum syntax keyword length.
+" let g:neocomplete#sources#syntax#min_keyword_length = 3
+" let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+
+" Define dictionary.
+" let g:neocomplete#sources#dictionary#dictionaries = {
+"     \ 'default' : ''
+"     \ }
+" "    \ 'vimshell' : $HOME.'/.vimshell_hist',
+" "     \ 'scheme' : $HOME.'/.gosh_completions'
+" "        \ }
+
+" phpunit test directory
+let g:phpunit_testroot = 'tests'
+
+" Define keyword.
+" if !exists('g:neocomplete#keyword_patterns')
+"     let g:neocomplete#keyword_patterns = {}
+" endif
+" let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+
+" Plugin key-mappings.
+
+" Recommended key-mappings.
+" <CR>: close popup and save indent.
+
+" Enable omni completion.
+
+" Enable heavy omni completion.
+" if !exists('g:neocomplete#sources#omni#input_patterns')
+"   let g:neocomplete#sources#omni#input_patterns = {}
+" endif
+
+" =============================== "
+" ===== Keyboard Mappings ======= "
+
+" Use "," as the <Leader> key
+let mapleader=","
+
+" Toggle NERDTree file browser
+map <Leader>n :NERDTreeToggle <CR>
+
+" Open current file in NERDTree
+map <Leader>f :NERDTreeFind <CR> 
+
+" Tagbar shows list of all methods and variables in class
+map <Leader>t :TagbarToggle <CR> 
+
+" Automatically add a use statement for class under cursor (uses ctags)
+map <Leader>u :call PhpInsertUse()<CR>
+
+" Expand the class under the cursor (uses ctags)
+map <Leader>e :call PhpExpandClass()<CR>
+
+" Fuzzy search open buffers
+map <C-B> :CtrlPBuffer <CR>
+" Fuzzy search tags
+map <C-T> :CtrlPTag <CR>
+" Fuzzy search all project filenames
+map <C-P> :CtrlP <CR>
+
+" map <C-p> :Unite file_rec/async<cr>
+" map <C-b> :Unite buffer <cr>
+" map <C-t> :Unite tag <cr>
+" map <Leader>g :Unite grep:.<cr>
+
+" Update ctags
+map <Leader>cp :!ctags --verbose <CR>
+
+" Reload the .vimrc config
+map <Leader>vr :so ~/.vimrc<CR>
+
+" Edit .vimrc
+map <Leader>ve :tabnew ~/.vim/.vimrc<CR>
+
+" Next quick fix item
+map <Leader>= :cnext<CR>
+
+" Previous quick fix item
+map <Leader>- :cprev<CR>
+
+" neocomplete
+" inoremap <expr><C-g>     neocomplete#undo_completion()
+" inoremap <expr><C-l>     neocomplete#complete_common_string()
+" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+" inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+" inoremap <expr><C-y>  neocomplete#close_popup()
+" inoremap <expr><C-e>  neocomplete#cancel_popup()
+

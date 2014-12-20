@@ -1,0 +1,14 @@
+- name: Install packages
+  sudo: True
+  apt: pkg={{ item }} state=present
+  with_items:
+      - "vim-gtk"
+
+- name: vimrc
+  template: src=vimrc dest="/home/{{ user.name }}/.vimrc"
+
+- name: Install Vundle
+  git: repo=git@github.com:gmarik/Vundle.vim.git dest=~/.vim/bundle/Vundle.vim
+
+#- name: Update bundles
+#  command: vim -c "BundleInstall" -c "qa"

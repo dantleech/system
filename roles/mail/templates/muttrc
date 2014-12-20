@@ -11,8 +11,8 @@ set sleep_time = 0
 auto_view text/html
 
 set sendmail="/usr/bin/msmtp"
-set alias_file={{ user.muttaliases }}	# where I keep my aliases
-source {{ user.muttaliases }}
+set alias_file={{ user.mutt.aliases }}	# where I keep my aliases
+source {{ user.mutt.aliases }}
 
 #set folder=~/Mail		# where i keep my mailboxes
 #set abort_unmodified=yes	# automatically abort replies if I don't
@@ -90,7 +90,7 @@ set sort=threads		# primary sorting method
 #set sort_aux=reverse-date-received	# how to sort subthreads
 #set sort_aux=last-date		# date of the last message in thread
 set sort_browser=reverse-date	# how to sort files in the dir browser
-set spoolfile='{{ user.maildir }}/INBOX'	# where my new mail is located
+set spoolfile='{{ user.mail.dir }}/INBOX'	# where my new mail is located
 #set status_format="-%r-Mutt: %f [Msgs:%?M?%M/?%m%?n? New:%n?%?d? Del:%d?%?F? Flag:%F?%?t? Tag:%t?%?p? Post:%p?%?b? Inc:%b?  %l]---(%s)-%>-(%P)---"
 #set status_on_top		# some people prefer the status bar on top
 #set strict_threads		# don't thread by subject
