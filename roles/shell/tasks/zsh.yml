@@ -5,10 +5,10 @@
       - "zsh"
 
 - name: Install prezto
-  git: repo=https://github.com/sorin-ionescu/prezto.git dest="~/.zprezto" recursive=true
+  git: repo=https://github.com/sorin-ionescu/prezto.git dest="{{ user.home }}/.zprezto" recursive=true
 
 - name: Copy configuration
-  template: src={{ item }} dest="/home/{{ user.name }}/.{{ item }}"
+  template: src={{ item }} dest="{{ user.home }}/.{{ item }}"
   with_items:
       - zlogin
       - zlogout

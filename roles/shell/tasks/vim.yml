@@ -5,10 +5,10 @@
       - "vim-gtk"
 
 - name: vimrc
-  template: src=vimrc dest="/home/{{ user.name }}/.vimrc"
+  template: src=vimrc dest="{{ user.home }}/.vimrc"
 
 - name: Install Vundle
-  git: repo=git@github.com:gmarik/Vundle.vim.git dest=~/.vim/bundle/Vundle.vim
+  git: repo=git@github.com:gmarik/Vundle.vim.git dest={{ user.home }}/.vim/bundle/Vundle.vim
 
 #- name: Update bundles
 #  command: vim -c "BundleInstall" -c "qa"

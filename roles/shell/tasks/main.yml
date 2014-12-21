@@ -1,5 +1,5 @@
 - name: Assert directories exist
-  file: path="{{ user.home }}/.config/systemd/user" state=directory
+  file: path="{{ user.xdgconfig }}/systemd/user" state=directory
 
 - include: misc.yml
 - include: tmux.yml

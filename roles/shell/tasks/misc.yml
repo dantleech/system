@@ -6,7 +6,7 @@
       - "git"
 
 - name: Dotfiles
-  template: src={{ item }} dest="~/.{{ item }}"
+  template: src={{ item }} dest="{{ user.home }}/.{{ item }}"
   with_items:
       - ctags
       - gitignoreglobal

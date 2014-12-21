@@ -17,7 +17,7 @@ source {{ user.mutt.aliases }}
 #set folder=~/Mail		# where i keep my mailboxes
 #set abort_unmodified=yes	# automatically abort replies if I don't
 #set allow_8bit			# never do Q-P encoding on legal 8-bit chars
-set arrow_cursor		# use -> instead of hiliting the whole line
+unset arrow_cursor		# use -> instead of hiliting the whole line
 #set ascii_chars		# use ASCII instead of ACS chars for threads
 #set askbcc
 #set askcc
@@ -281,9 +281,9 @@ alias wmaker WindowMaker Mailing List <wmaker@eosys.com>
 #	mailboxes <path1> [ <path2> ... ]
 #
 
-mailboxes ! +mutt-dev +mutt-users +open-pgp +wmaker +hurricane +vim +ietf \
-	+drums
-mailboxes `echo $HOME/Mail/*`
+{% for box in user.mail.boxes %}
+mailboxes {{ user.home }}/Mail/{{ box }}
+{% endfor %}
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #
@@ -334,5 +334,4 @@ auto_view application/x-gzip
 #
 
 # source ~/.muttrc-local	# config commands local to this site
-
-# EOF
+source "{{ user.home }}/.mutt/mutt_sidebar"

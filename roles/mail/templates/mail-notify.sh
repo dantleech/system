@@ -27,7 +27,7 @@ parse_send() {
     from=$(cat $2 | egrep '^From' | sed -e 's/^From://g')
 
     # Send the message with the name this scrip was invoked with.
-    notify-send --app-name "$scriptname" "$inbox $from" "$subject"
+    notify-send -i /usr/share/icons/Adwaita/22x22/actions/mail-message-new.png ---app-name "$scriptname" "$inbox $from" "$subject"
 }
 
 # Debug with static file.
