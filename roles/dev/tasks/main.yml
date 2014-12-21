@@ -1,3 +1,6 @@
+- name: Assert directories exist
+  file: path="{{ user.home }}/.config/systemd/user" state=directory
+
 - name: Install packages
   sudo: True
   apt: pkg={{ item }} state=present

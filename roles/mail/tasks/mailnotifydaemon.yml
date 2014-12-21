@@ -1,0 +1,9 @@
+- name: Install notification script
+  sudo: True
+  template: src=mail-notify.sh dest="/usr/local/bin/mail-notify-daemon" mode=0700 owner={{ user.name }}
+
+- name: Install systemd service
+  template: src=mail-notify.service dest={{ user.home }}/.config/systemd/user/mail-notify-daemon.service
+
+- name: Enable service
+  command: systemctl --user enable mail-notify-daemon
