@@ -1,0 +1,17 @@
+- name: Install packages
+  sudo: True
+  apt: pkg={{ item }} state=present
+  with_items:
+      - "libsoup2.4-dev"
+      - "libwebkit-dev"
+      - "libgtk2.0-dev"
+
+- name: Clone vimb
+  git: repo=https://github.com/fanglingsu/vimb.git update=no dest="{{ user.home }}/www/fanglingsu/vimb"
+
+- name: Make vimb
+  sudo: True
+  command: creates=/usr/local/bin/vimb chdir="{{ user.home }}/www/fanglingsu/vimb" make install
+
+- name: Copy config
+  template: src=vimb_config dest="{{ user.home }}/.config/vimb/config"

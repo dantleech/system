@@ -1,24 +1,4 @@
 - name: Assert directories exist
-  file: path="{{ user.home }}/.config/systemd/user" state=directory
-
-- name: Install packages
-  sudo: True
-  apt: pkg={{ item }} state=present
+  file: path="{{ item }}" state=directory
   with_items:
-      - "ctags"
-      - "git"
-
-- name: Dotfiles
-  template: src={{ item }} dest="~/.{{ item }}"
-  with_items:
-      - ctags
-      - gitignoreglobal
-
-- name: Set git global ignore
-  command: git config --global core.excludesfile ~/.gitignoreglobal
-
-- name: Set git global username
-  command: git config --global user.name {{ user.fullname }}
-
-- name: Set git global email
-  command: git config --global user.email {{ user.github.email }}
+      - "{{ user.home }}/www"

@@ -1,0 +1,7 @@
+- name: Assert directories exist
+  file: path="{{ user.home }}/.config/systemd/user" state=directory
+
+- include: misc.yml
+- include: tmux.yml
+- include: vim.yml
+- include: zsh.yml
