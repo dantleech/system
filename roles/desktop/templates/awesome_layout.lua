@@ -23,25 +23,9 @@ for s = 1, screen.count() do
     tags[s] = awful.tag({ 1, 2, 3, 4, 5, 6, 7, 8, 9 }, s, layouts[1])
 end
 
+
 -- Wibox
--- Create a textclock widget
-mytextclock = awful.widget.textclock({ align = "right" })
-
--- Create an ACPI widget                                                        
-batterywidget = widget({ type = "textbox" })                                    
-batterywidget.text = " | Battery | "                                            
-batterywidgettimer = timer({ timeout = 5 })                                     
-batterywidgettimer:add_signal("timeout",                                        
-  function()                                                                    
-      fh = assert(io.popen("acpi | cut -d, -f 2,3 -", "r"))                       
-      batterywidget.text = " |" .. fh:read("*l") .. " | "                         
-      fh:close()                                                                  
-    end                                                                           
-)                                                                               
-batterywidgettimer:start()
-
--- Create a systray
-mysystray = widget({ type = "systray" })
+require("widgets")
 
 -- Create a wibox for each screen and add it
 mywibox = {}

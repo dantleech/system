@@ -1,2 +1,3 @@
 - include: awesome.yml
+- include: privoxy.yml
 - include: vimb.yml

@@ -25,3 +25,4 @@
     - bindings.lua
     - rules.lua
     - variables.lua
+    - widgets.lua

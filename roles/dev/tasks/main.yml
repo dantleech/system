@@ -2,3 +2,5 @@
   file: path="{{ item }}" state=directory
   with_items:
       - "{{ user.home }}/www"
+
+- include: php.yml

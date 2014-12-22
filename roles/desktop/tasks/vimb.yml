@@ -15,3 +15,7 @@
 
 - name: Copy config
   template: src=vimb_config dest="{{ user.home }}/.config/vimb/config"
+
+- name: Install vimb wrapper
+  sudo: True
+  copy: src=vimbp dest=/usr/local/bin/vimbp mode=755
