@@ -3,6 +3,8 @@ shortcut-add gh=https://www.github.com/$0/$1
 shortcut-add sulu=https://www.github.com/sulu-cmf/$0
 shortcut-add cmf=https://www.github.com/symfony-cmf/$0
 shortcut-add php=http://php.net/manual-lookup.php?pattern=$0
+shortcut-add phpcrio=http://phpcr.github.io
+shortcut-add phpcr=http://www.github.com/phpcr/$0
 
 set editor-command=gvim -f %s
 

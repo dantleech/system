@@ -3,12 +3,10 @@
 
 [general]
 accounts = {{ user.name }}
-ui = Blinkenlights
 
 [Account {{ user.name }}]
 localrepository = Local
 remoterepository = Remote
-autorefresh = 5
 
 [Repository Local]
 type = Maildir

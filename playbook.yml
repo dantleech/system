@@ -4,6 +4,8 @@
       - { role: dev, tags: [dev] }
       - { role: mail, tags: [mail] }
       - { role: desktop, tags: [desktop] }
+  handlers:
+      - include: roles/desktop/handlers/main.yml
 
   vars_files:
       - "vars/main.yml"

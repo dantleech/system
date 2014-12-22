@@ -19,3 +19,8 @@
 - name: Install vimb wrapper
   sudo: True
   copy: src=vimbp dest=/usr/local/bin/vimbp mode=755
+
+- name: Add desktop entry
+  sudo: True
+  template: src=vimb_desktop dest=/usr/share/applications/vimb.desktop
+  notify: update-desktop-database

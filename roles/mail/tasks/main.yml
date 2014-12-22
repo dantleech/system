@@ -6,6 +6,7 @@
       - "offlineimap"
       - "msmtp"
       - "inotify-tools"
+      - "elinks"
 
 - name: Copy dotfiles
   template: src={{ item }} dest="{{ user.home }}/.{{ item }}" mode=0600
@@ -13,6 +14,8 @@
       - msmtprc
       - offlineimaprc
       - muttrc
+      - mailcap
 
 - include: mailnotifydaemon.yml
 - include: mutt.yml
+- include: offlineimap.yml

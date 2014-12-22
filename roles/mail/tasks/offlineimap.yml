@@ -1,0 +1,9 @@
+- name: Create log file
+  sudo: True
+  file: path=/var/log/offlineimap state=file owner=daniel group=adm
+
+- name: Offlimeimap cron
+  sudo: True
+  cron: name="offline imap" minute=*/2
+        user="daniel" job="/usr/bin/offlineimap > /var/log/offlineimap"
+        cron_file=ansible_offlineimap
