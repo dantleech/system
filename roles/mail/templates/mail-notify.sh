@@ -18,7 +18,7 @@ parse_send() {
 
     # Send the message with the name this scrip was invoked with.
     export DISPLAY=:0; export XAUTHORITY={{ user.home }}/.Xauthority; 
-    notify-send -i /usr/share/icons/Adwaita/22x22/actions/mail-message-new.png "$inbox $from" "$subject"
+    notify-send -t 7 -i /usr/share/icons/Adwaita/22x22/actions/mail-message-new.png "$inbox $from" "$subject"
 }
 
 # Debug with static file.

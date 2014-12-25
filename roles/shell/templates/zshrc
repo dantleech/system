@@ -15,3 +15,5 @@ export VISUAL=vim
 
 zstyle ':prezto:module:git:status:ignore' submodules 'all'
 zstyle ':prezto:module:git:info:context:subcontext' format 'string'
+
+alias dt=dict

@@ -1,0 +1,31 @@
+- name: Install packages
+  sudo: True
+  apt: pkg={{ item }} state=present
+  with_items:
+      - "weechat"
+      - "weechat-plugins"
+      - "python-notify2"
+
+- name: Weechat configuration
+  template: src=weechat_{{ item }}.conf dest="{{ user.home }}/.weechat/{{ item }}.conf"
+  with_items:
+      - irc
+      - plugins
+
+- name: Install Python Plugins
+  template: src=weechat_plugin_{{ item }} dest="{{ user.home }}/.weechat/python/{{ item }}"
+  with_items:
+      - lnotify.py
+
+- name: Enable Python Plugins
+  file: dest="{{ user.home }}/.weechat/python/autoload/{{ item }}" src="{{ user.home }}/.weechat/python/{{ item }}" state=link
+  with_items:
+      - lnotify.py
+
+- name: Icon directory
+  sudo: True
+  file: path=/usr/local/share/icons state=directory
+
+- name: Install icon
+  sudo: True
+  copy: src=irc_protocol.png dest=/usr/local/share/icons/irc_protocol.png mode=0655

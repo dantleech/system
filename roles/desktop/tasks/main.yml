@@ -1,3 +1,4 @@
-- include: awesome.yml
-- include: privoxy.yml
-- include: vimb.yml
+- include: awesome.yml tags=awesome
+- include: privoxy.yml tags=privoxy
+- include: vimb.yml tags=vimb
+- include: weechat.yml tags=weechat

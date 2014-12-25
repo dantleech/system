@@ -2,7 +2,5 @@
   sudo: True
   apt: pkg={{ item }} state=present
   with_items:
-      - "tmux"
+    - "python-sphinx"
 
-- name: Config
-  template: src=tmux dest="{{ user.home }}/.tmux.conf"

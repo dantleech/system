@@ -1,0 +1,106 @@
+- name: Install packages
+  sudo: True
+  apt: pkg={{ item }} state=present
+  with_items:
+      - "ruby"
+
+- name: Install tmuxinator
+  gem: name=tmuxinator state=present user_install=no
+
+- name: Profiles
+  template: src=tmuxinator_profile.yml dest="{{ user.home }}/.tmuxinator/{{ item.name }}.yml"
+  with_items:
+      # Friends of Symfony
+      - 
+         name: fos-http-cache-bundle
+         vendor: FriendsOfSymfony
+         repo: FOSHttpCacheBundle
+      - 
+         name: fos-http-cache
+         vendor: FriendsOfSymfony
+         repo: FOSHttpCache
+      # Symfony CMF
+      - 
+         name: cmf-blog-bundle
+         vendor: symfony-cmf
+         repo: BlogBundle
+      - 
+         name: cmf-block-bundle
+         vendor: symfony-cmf
+         repo: BlockBundle
+      - 
+         name: cmf-routing-auto-bundle
+         vendor: symfony-cmf
+         repo: RoutingAutoBundle
+      - 
+         name: cmf-routing-auto
+         vendor: symfony-cmf
+         repo: RoutingAuto
+      - 
+         name: cmf-routing-bundle
+         vendor: symfony-cmf
+         repo: RoutingBundle
+      - 
+         name: cmf-routing
+         vendor: symfony-cmf
+         repo: Routing
+      - 
+         name: cmf-resource
+         vendor: symfony-cmf
+         repo: Resource
+      - 
+         name: cmf-resource
+         vendor: symfony-cmf
+         repo: ResourceBundle
+      - 
+         name: cmf-tree-browser-bundle
+         vendor: symfony-cmf
+         repo: TreeBrowserBundle
+      # Doctrine
+      - 
+         name: phpcr-odm
+         vendor: doctrine
+         repo: phpcr-odm
+      - 
+         name: doctrine2
+         vendor: doctrine
+         repo: doctrine2
+      # Jackalope
+      - 
+         name: jackalope-doctrine-dbal
+         vendor: jackalope
+         repo: jackalope-doctrine-dbal
+      - 
+         name: jackalope
+         vendor: jackalope
+         repo: jackalope
+      - 
+         name: jackalope-fs
+         vendor: jackalope
+         repo: jackalope-fs
+      - 
+         name: jackalope-jackrabbit
+         vendor: jackalope
+         repo: jackalope-jackrabbit
+      # PHPCR
+      - 
+         name: phpcr
+         vendor: phpcr
+         repo: phpcr
+      - 
+         name: phpcr-shell
+         vendor: phpcr
+         repo: phpcr-shell
+      # dantleech
+      - 
+         name: dtlweb
+         vendor: dantleech
+         repo: dtlweb
+      - 
+         name: ratest
+         vendor: dantleech
+         repo: ratest
+      - 
+         name: system
+         vendor: dantleech
+         repo: system

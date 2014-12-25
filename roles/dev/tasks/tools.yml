@@ -1,0 +1,9 @@
+- name: Download phpunit
+  sudo: True
+  get_url: url=https://phar.phpunit.de/phpunit.phar dest=/usr/local/bin/phpunit mode=0755
+
+- name: Install composer
+  sudo: True
+  shell:
+    curl -sS https://getcomposer.org/installer | /usr/bin/php && /bin/mv -f /home/vagrant/composer.phar /usr/local/bin/composer
+    creates=/usr/local/bin/composer

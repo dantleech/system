@@ -14,6 +14,16 @@ batterywidgettimer:add_signal("timeout",
 )                                                                               
 batterywidgettimer:start()
 
+
+memwidget = widget({ type = "textbox" })
+vicious.register(memwidget, vicious.widgets.mem, '$2/$3MB | ', 13)
+
+netwidget = widget({ type = "textbox" })
+vicious.register(netwidget, vicious.widgets.net, '▼${wlan0 down_kb} ▲${wlan0 up_kb} | ', 3)
+
+cpuwidget = widget({ type = "textbox" })
+vicious.register(cpuwidget, vicious.widgets.cpu, '$1% | ')
+
 -- Create a systray
 mysystray = widget({ type = "systray" })
 

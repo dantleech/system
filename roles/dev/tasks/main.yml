@@ -4,3 +4,5 @@
       - "{{ user.home }}/www"
 
 - include: php.yml
+- include: docs.yml
+- include: tools.yml

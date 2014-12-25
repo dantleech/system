@@ -3,5 +3,6 @@
 
 - include: misc.yml
 - include: tmux.yml
+- include: tmuxinator.yml
 - include: vim.yml
 - include: zsh.yml
