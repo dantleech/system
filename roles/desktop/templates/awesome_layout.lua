@@ -107,6 +107,7 @@ for s = 1, screen.count() do
         memwidget,
         cpuwidget,
         batterywidget,
+        ipwidget,
         s == 1 and mysystray or nil,
         mytasklist[s],
         layout = awful.widget.layout.horizontal.rightleft

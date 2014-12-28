@@ -47,7 +47,7 @@ class config(object):
             "highlight": "on",
             "query": "on",
             "notify_away": "off",
-            "icon": "weechat"
+            "icon": "weechat",
             "truncate": "50"
         }
 

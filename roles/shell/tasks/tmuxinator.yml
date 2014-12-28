@@ -104,3 +104,8 @@
          name: system
          vendor: dantleech
          repo: system
+      # Sonata
+      - 
+         name: sonata-phpcr-bundle
+         vendor: sonata
+         repo: SonataDoctrinePhpcrAdminBundle

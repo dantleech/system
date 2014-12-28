@@ -1,8 +1,8 @@
 - name: Assert directories exist
   file: path="{{ user.xdgconfig }}/systemd/user" state=directory
 
-- include: misc.yml
-- include: tmux.yml
-- include: tmuxinator.yml
-- include: vim.yml
-- include: zsh.yml
+- include: misc.yml tags=misc
+- include: tmux.yml tags=tmux
+- include: tmuxinator.yml tags=tmuxinator
+- include: vim.yml tags=vim
+- include: zsh.yml tags=zsh
