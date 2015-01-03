@@ -2,22 +2,25 @@
 # suit to get started fast.
 
 [general]
-accounts = {{ user.name }}
+accounts = {{ user.mail.accounts.keys()|join(',') }}
 
-[Account {{ user.name }}]
-localrepository = Local
-remoterepository = Remote
+{% for accountName, account in user.mail.accounts.iteritems() %}
 
-[Repository Local]
+[Account {{accountName }}]
+localrepository = {{ accountName }}Local
+remoterepository = {{ accountName }}Remote
+
+[Repository {{ accountName }}Local]
 type = Maildir
-localfolders = {{ user.mail.dir }}
+localfolders = {{ user.mail.basedir }}/{{ accountName }}
 
-[Repository Remote]
+[Repository {{ accountName }}Remote]
 type = IMAP
-remotehost = {{ user.mail.server }}
-remoteuser = {{ user.mail.user }}
+remotehost = {{ account.server }}
+remoteuser = {{ account.user }}
 remotepass = {{ secure.user.mail.password }}
 ssl=yes 
 cert_fingerprint={{ server.ssl_fingerprint | regex_replace(':', '') }}
-
 folderfilter = lambda foldername: foldername not in ['dovecot.sieve']
+
+{% endfor %}

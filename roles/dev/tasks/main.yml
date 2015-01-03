@@ -3,6 +3,6 @@
   with_items:
       - "{{ user.home }}/www"
 
-- include: php.yml
-- include: docs.yml
-- include: tools.yml
+- include: php.yml tags=php
+- include: docs.yml tags=docs
+- include: tools.yml tags=tools

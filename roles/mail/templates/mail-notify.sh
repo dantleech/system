@@ -2,7 +2,7 @@
 
 # Watch Maildir inboxes for new mails and send a summary notification with notify-send. Tested and "works perfectly" with dunst.
 # Dependencies: inotifywait from inotify-tools package.
-maildir_path="{{ user.mail.dir }}"  # Path to Maildir root.
+maildir_path="{{ user.mail.basedir }}"  # Path to Maildir root.
 mailboxes=("{{ user.mail.boxes|join('" "') }}") # Mailboxes to watch.
 
 watchdirs=$(for box in ${mailboxes[*]}; do echo ${maildir_path}/$box/new; done)

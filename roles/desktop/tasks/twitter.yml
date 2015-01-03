@@ -1,2 +1,0 @@
-- name: Install "t" twitter client
-  gem: name="t" state="present"

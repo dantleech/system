@@ -31,6 +31,10 @@ Plugin 'MarcWeber/ultisnips'
 " Package manager
 Plugin 'gmarik/vundle'
 
+" phpcsfixer integration
+Plugin 'stephpy/vim-php-cs-fixer'
+
+
 " Ctrlp - quickly find files, tags and buffers using fuzzy search
 Plugin 'kien/ctrlp.vim'
 
@@ -45,6 +49,7 @@ Plugin 'pangloss/vim-javascript'
 
 " Nerdtree file browser
 Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 
 " Easily comment - <Leader>cc
 Plugin 'scrooloose/nerdcommenter'
@@ -191,6 +196,10 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
+" Settings for php-cs-fixer
+let g:php_cs_fixer_path = "/usr/local/bin/phpcsfixer"
+
+
 " ======================== "
 " Neo complete config
 " ======================== "
@@ -275,13 +284,18 @@ map <Leader>cp :!ctags --verbose <CR>
 map <Leader>vr :so ~/.vimrc<CR>
 
 " Edit .vimrc
-map <Leader>ve :tabnew ~/.vim/.vimrc<CR>
+map <Leader>ve :tabnew ~/.vimrc<CR>
 
 " Next quick fix item
 map <Leader>= :cnext<CR>
 
 " Previous quick fix item
 map <Leader>- :cprev<CR>
+
+" PHPCs Fixer
+nnoremap <silent><leader>pcd :call PhpCsFixerFixDirectory()<CR>
+nnoremap <silent><leader>pcf :call PhpCsFixerFixFile()<CR>
+
 
 " neocomplete
 " inoremap <expr><C-g>     neocomplete#undo_completion()

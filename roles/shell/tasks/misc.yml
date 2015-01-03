@@ -17,7 +17,7 @@
   command: git config --global core.excludesfile ~/.gitignoreglobal
 
 - name: Set git global username
-  command: git config --global user.name {{ user.nick }}
+  command: git config --replace-all --global user.name {{ user.nick }}
 
 - name: Set git global email
   command: git config --global user.email {{ user.github.email }}

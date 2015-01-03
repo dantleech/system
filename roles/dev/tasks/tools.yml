@@ -7,3 +7,18 @@
   shell:
     curl -sS https://getcomposer.org/installer | /usr/bin/php && /bin/mv -f /home/vagrant/composer.phar /usr/local/bin/composer
     creates=/usr/local/bin/composer
+
+- name: Install PHPMD
+  sudo: True
+  get_url: url="http://static.phpmd.org/php/latest/phpmd.phar" dest=/usr/local/bin/phpmd mode=0755
+
+- name: Install CS Fixer
+  sudo: True
+  get_url: url="http://get.sensiolabs.org/php-cs-fixer.phar" dest=/usr/local/bin/phpcsfixer mode=0755
+
+- name: Install Box
+  sudo: True
+  shell: 
+      curl -LSs https://box-project.github.io/box2/installer.php | /usr/bin/php && /bin/mv -f box.phar /usr/local/bin/box
+      creates=/usr/local/bin/box
+
