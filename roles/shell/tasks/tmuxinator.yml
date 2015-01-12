@@ -113,3 +113,13 @@
          name: sonata-phpcr-bundle
          vendor: sonata
          repo: SonataDoctrinePhpcrAdminBundle
+      # Sulu
+      - 
+         name: sulu-standard
+         vendor: sulu-cmf
+         repo: sulu-standard
+      # Sulu
+      - 
+         name: sulu
+         vendor: sulu-cmf
+         repo: sulu

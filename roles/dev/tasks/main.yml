@@ -6,3 +6,4 @@
 - include: php.yml tags=php
 - include: docs.yml tags=docs
 - include: tools.yml tags=tools
+- include: ruby.yml tags=ruby

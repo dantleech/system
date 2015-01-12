@@ -16,3 +16,7 @@
 - name: Install cli config
   sudo: True
   template: src=php.ini dest=/etc/php5/cli/php.ini mode=0644
+
+- name: Install Xdebug config
+  sudo: True
+  template: src=php_xdebug.ini dest=/etc/php5/apache2/conf.d/20-xdebug.ini
