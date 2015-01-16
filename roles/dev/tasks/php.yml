@@ -19,4 +19,7 @@
 
 - name: Install Xdebug config
   sudo: True
-  template: src=php_xdebug.ini dest=/etc/php5/apache2/conf.d/20-xdebug.ini
+  template: src=php_xdebug.ini dest="{{ item }}"
+  with_items:
+      - "/etc/php5/apache2/conf.d/20-xdebug.ini"
+      - "/etc/php5/cli/conf.d/20-xdebug.ini"

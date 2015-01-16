@@ -1,0 +1,15 @@
+- name: Install packages
+  sudo: True
+  apt: pkg={{ item }} state=present
+  with_items:
+      - "mpd"
+      - "ncmpcpp"
+
+- name: Copy mpd config
+  sudo: true
+  template: src=mpd.conf dest="{{ user.home }}/.mpdconf"
+
+- name: Copy ncmpp config
+  template: src=ncmpcpp_config dest="{{ user.home }}/.ncmpcpp/config"
+
+

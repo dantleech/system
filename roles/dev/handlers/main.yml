@@ -1,0 +1,4 @@
+- name: restart-varnish
+  sudo: True
+  service: name=varnish state=restarted
+

@@ -2,3 +2,4 @@
 - include: privoxy.yml tags=privoxy
 - include: vimb.yml tags=vimb
 - include: weechat.yml tags=weechat
+- include: mpd.yml tags=mpd

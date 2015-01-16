@@ -7,3 +7,5 @@
 - include: docs.yml tags=docs
 - include: tools.yml tags=tools
 - include: ruby.yml tags=ruby
+- include: etc.yml tags=etc
+- include: varnish.yml tags=varnish
