@@ -1,0 +1,2 @@
+vim:
+    pdv_template_dir: "{{ user.home }}/.vim/pdv_templates_snip"

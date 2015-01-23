@@ -4,6 +4,7 @@
   with_items:
       - "mpd"
       - "ncmpcpp"
+      - "alsa-utils"
 
 - name: Copy mpd config
   sudo: true
