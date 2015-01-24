@@ -1,15 +1,45 @@
 user: 
     name: daniel
     fullname: Daniel Leech
-    email: foo@bar.com
+    nick: dantleech
+    email: daniel@dantleech.com
+    home: /home/daniel
+    src: /home/daniel/www
+    xdgconfig: /home/daniel/.config
     mail:
-        user: bar.foo.com
-        server: mail.boo.com
-        dir: ~/Mail
+        accounts:
+            dantleech:
+                user: foo
+                imap: foo
+                smtp: foo
+            lists:
+                user: foo
+                imap: foo
+                smtp: foo
+        basedir: /home/daniel/Mail
+        primaryaccount: dantleech
+        boxes:
+            - "dantleech/INBOX"
+            - "dantleech/INBOX.PHPCR"
+            - "dantleech/INBOX.CMF"
+            - "dantleech/INBOX.Sulu"
+            - "dantleech/INBOX.YProximite"
+            - "dantleech/INBOX.Jackalope" 
+            - "dantleech/INBOX.php-fig" 
+            - "dantleech/INBOX.Twitter"
+            - "lists/INBOX"
+    weechat:
+        freenode:
+            autojoin:
+                - symfony-cmf
+                - symfony
+                - sulu-cmf
+                - behat
+     
     mutt:
         aliases: ~/ownCloud/System/mutt/aliases
     github:
-        email: {{ user.email }}
+        email: dan@localhost
 
 server:
-    ssl_fingerprint: FF:FF:FF:FF:FF:FF:FF:FF:FF:FF:FF:FF:FF
+    ssl_fingerprint: FF:FF:FF:FF:FF:FF:FF:FF:FF:FF:FF:FF:FF:FF:FF:FF:FF:FF:FF:FF

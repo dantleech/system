@@ -16,9 +16,9 @@ localfolders = {{ user.mail.basedir }}/{{ accountName }}
 
 [Repository {{ accountName }}Remote]
 type = IMAP
-remotehost = {{ account.server }}
+remotehost = {{ account.imap }}
 remoteuser = {{ account.user }}
-remotepass = {{ secure.user.mail.password }}
+remotepass = {{ secure.user.imap.password }}
 ssl=yes 
 cert_fingerprint={{ server.ssl_fingerprint | regex_replace(':', '') }}
 folderfilter = lambda foldername: foldername not in ['dovecot.sieve']

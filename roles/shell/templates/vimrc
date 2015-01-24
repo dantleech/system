@@ -248,7 +248,7 @@ let g:phpunit_testroot = 'tests'
 " endif
 
 " PDV config
-let g:pdv_template_dir = $HOME ."{{ vim.pdv_template_dir }}"
+let g:pdv_template_dir = "{{ vim.pdv_template_dir }}"
 
 " =============================== "
 " ===== Keyboard Mappings ======= "

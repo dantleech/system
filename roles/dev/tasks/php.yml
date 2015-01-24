@@ -8,6 +8,7 @@
       - "php5-readline"
       - "php5-sqlite"
       - "php5-mysql"
+      - "php5-intl"
 
 - name: Install apache config
   sudo: True
