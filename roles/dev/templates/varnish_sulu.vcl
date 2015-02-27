@@ -7,10 +7,15 @@ acl invalidators {
 
 backend default {
     .host = "127.0.0.1";
-    .port = "8002";
+    .port = "8000";
 }
 
 sub vcl_recv {
+    #if (req.url ~ "^/admin") {
+    #    unset req.http.cookie;
+    #    unset req.http.cache-control;
+    #}
+
     if (req.method == "PURGE") {
         if (!client.ip ~ invalidators) {
             return (synth(405, "Not allowed"));
@@ -42,6 +47,8 @@ sub vcl_recv {
 }
 
 sub vcl_backend_response {
+    unset beresp.http.set-cookie;
+
     # Set ban-lurker friendly custom headers
     set beresp.http.x-url = bereq.url;
     set beresp.http.x-host = bereq.http.host;

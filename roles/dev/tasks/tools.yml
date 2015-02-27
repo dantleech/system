@@ -1,3 +1,11 @@
+- name: General packages
+  sudo: True
+  apt: pkg={{ item }} state=present
+  with_items:
+    - build-essential
+    - cmake
+    - python-dev
+
 - name: Download phpunit
   sudo: True
   get_url: url=https://phar.phpunit.de/phpunit.phar dest=/usr/local/bin/phpunit mode=0755

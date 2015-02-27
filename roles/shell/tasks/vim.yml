@@ -13,5 +13,8 @@
 - name: Install PDV templates
   copy: src=vim_pdv_templates_snip/ dest={{ vim.pdv_template_dir }}
 
+- name: Install PDV snippets
+  copy: src=snippets/ dest={{ vim.snippets_dir }}
+
 #- name: Update bundles
 #  command: vim -c "BundleInstall" -c "qa"

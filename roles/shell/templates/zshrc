@@ -17,4 +17,10 @@ zstyle ':prezto:module:git:status:ignore' submodules 'all'
 zstyle ':prezto:module:git:info:context:subcontext' format 'string'
 
 alias dt=dict
-unsetopt NOCLOBBER
+alias cp="cp"
+alias tmuxa="tmux 2at -t"
+alias tmuxn="tmux new -s"
+alias tmux="tmux -2"
+
+# use vim key bindings
+bindkey -v

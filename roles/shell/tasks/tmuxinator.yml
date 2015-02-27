@@ -21,6 +21,10 @@
          repo: FOSHttpCache
       # Symfony CMF
       - 
+         name: cmf-docs
+         vendor: symfony-cmf
+         repo: symfony-cmf-docs
+      - 
          name: cmf-blog-bundle
          vendor: symfony-cmf
          repo: BlogBundle
@@ -118,7 +122,6 @@
          name: sulu-standard
          vendor: sulu-cmf
          repo: sulu-standard
-      # Sulu
       - 
          name: sulu
          vendor: sulu-cmf

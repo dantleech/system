@@ -1,10 +1,11 @@
 set nocompatible               " be iMproved
 filetype off                   " required!
 
+" enable 256 colors
+set t_Co=256 
+
 set rtp+=~/.vim/bundle/Vundle.vim
 let g:vundle_default_git_proto = 'git'
-let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips/""
-
 call vundle#begin()
 
 " =============================== "
@@ -13,7 +14,7 @@ call vundle#begin()
 " Disabled but interesting ...
 " Plugin 'Shougo/neocomplete' - this plugin cripples vim after a day or so
 "Plugin 'Shougo/neosnippet'
-"Plugin 'Shougo/unite.vim'
+Plugin 'Shougo/unite.vim'
 "Plugin 'tsukkee/unite-tag'
 "Plugin 'tpope/vim-surround'
 
@@ -61,7 +62,11 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
 
 " Powerful PHP completion (uses ctags)
-Plugin 'shawncplus/phpcomplete.vim'
+Plugin 'shawncplus/phpcomplete.vimu'
+" Plugin 'm2mdas/phpcomplete-extended' <-- nice, users composer. almost ideal. but buggy and adds latency when loading
+
+" YouCompleteMe
+" Plugin 'Valloric/YouCompleteMe'
 
 " Allows text replacement regardless of CaSe
 Plugin 'tpope/vim-abolish'
@@ -95,6 +100,9 @@ Plugin 'joonty/vdebug'
 
 " phpunit skelgen
 Plugin 'TsonJgoku/vim-phpunit-skelgen'
+
+" Cool status bar
+Plugin 'bling/vim-airline'
 
 call vundle#end()
 
@@ -134,8 +142,17 @@ let php_sync_method = 0
 let php_folding=0
 let g:DisableAutoPHPFolding = 1
 
-" Nerdtree
-let NERDTreeShowBookmarks = 1
+" Nerdtree: Close NERDTree if it is the last open buffer
+autocmd WinEnter * call s:CloseIfOnlyNerdTreeLeft()
+function! s:CloseIfOnlyNerdTreeLeft()
+  if exists("t:NERDTreeBufName")
+    if bufwinnr(t:NERDTreeBufName) != -1
+      if winnr("$") == 1
+        q
+      endif
+    endif
+  endif
+endfunction
 
 " show TWIG highlighting
 " au BufRead,BufNewFile *.twig set syntax=htmljinja
@@ -190,6 +207,9 @@ set tags+=/usr/share/php/PHPUnit/tags
 let g:phpcomplete_parse_docblock_comments = 1
 let g:phpcomplete_complete_for_unknown_classes = 0
 
+" PHP Compoete extended
+let g:phpcomplete_index_composer_command="composer"
+
 " Settings for rst / markdown
 autocmd FileType rst setlocal textwidth=78
 autocmd Filetype markdown setlocal textwidth=78
@@ -202,6 +222,9 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 " Settings for php-cs-fixer
 let g:php_cs_fixer_path = "/usr/local/bin/phpcsfixer"
 
+" UltiSnips
+let g:UltiSnipsSnippetsDir="{{ vim.snippets_dir }}"
+let g:UltiSnipsExpandTrigger="<c-c>"
 
 " ======================== "
 " Neo complete config
@@ -249,6 +272,11 @@ let g:phpunit_testroot = 'tests'
 
 " PDV config
 let g:pdv_template_dir = "{{ vim.pdv_template_dir }}"
+
+" Enable powerline fonts
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+
 
 " =============================== "
 " ===== Keyboard Mappings ======= "

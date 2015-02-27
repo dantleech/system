@@ -24,3 +24,7 @@
   with_items:
       - "/etc/php5/apache2/conf.d/20-xdebug.ini"
       - "/etc/php5/cli/conf.d/20-xdebug.ini"
+
+- name: Install php-xdebug script
+  sudo: True
+  copy: src=php-xdebug dest=/usr/local/bin/php-xdebug mode=655

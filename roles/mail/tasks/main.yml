@@ -7,6 +7,7 @@
       - "msmtp"
       - "inotify-tools"
       - "elinks"
+      - "urlview"
 
 - name: Copy dotfiles
   template: src={{ item }} dest="{{ user.home }}/.{{ item }}" mode=0600

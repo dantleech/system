@@ -176,7 +176,9 @@ bind generic { top-page
 bind generic } bottom-page
 bind generic \177 last-entry
 
+# Open URLs
 macro index \cb "<pipe-message> urlview<Enter>"	# simulate the old browse-url function
+# macro pager \cb <pipe-entry>'w3m'<enter> 'Follow links in w3m'
 
 macro index S "<save-message>+spam<Enter>"
 macro pager S "<save-message>+spam<Enter>"

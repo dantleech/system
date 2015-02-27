@@ -3,3 +3,4 @@
 *.swn
 *.swm
 tags
+.phpcomplete_extended
