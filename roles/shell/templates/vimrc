@@ -162,7 +162,7 @@ set history=1000
 set nospell
 set pastetoggle=<F12> 
 
-" status lines
+" status lines -- note this is not used when airline is enabled
 if has('statusline')
     set laststatus=2
 
@@ -176,7 +176,7 @@ if has('statusline')
 endif
 
 " Ignore files
-set wildignore+=*/.git/*,*.cache,*.cache.php,*.swp,*.swo,**/cache/**
+set wildignore+=*/.git/*,*.cache,*.cache.php,*.swp,*.swo,**/cache/**,*.min.js
 
 " Allow hidden buffers
 set hidden

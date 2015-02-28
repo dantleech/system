@@ -103,6 +103,7 @@ for s = 1, screen.count() do
         },
         mylayoutbox[s],
         mytextclock,
+        volumewidget,
         uptimewidget,
         cpuwidget,
         ethnetwidget,
