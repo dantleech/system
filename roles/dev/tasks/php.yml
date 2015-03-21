@@ -28,3 +28,7 @@
 - name: Install php-xdebug script
   sudo: True
   copy: src=php-xdebug dest=/usr/local/bin/php-xdebug mode=655
+
+- name: Clone webgrind
+  sudo: true
+  git: repo=https://github.com/jokkedk/webgrind.git update=no dest="/var/www/html/webgrind"

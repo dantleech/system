@@ -1,0 +1,10 @@
+#!/usr/bin/zsh
+# Scipt to format the output of CURL for testing web API calls from firefox, chrome etc.
+
+RES=$(cat | sed -e 's/\n//g' | python -mjson.tool)
+
+if [ 0 = $? ]; then
+    echo $RES | pygmentize -ljavascript | less
+else
+    echo $INPUT | pygmentize -ljavascript | less
+fi

@@ -30,3 +30,8 @@
       curl -LSs https://box-project.github.io/box2/installer.php | /usr/bin/php && /bin/mv -f box.phar /usr/local/bin/box
       creates=/usr/local/bin/box
 
+- name: Install misc scripts
+  sudo: True
+  copy: src={{ item }} dest=/usr/local/bin/{{ item }} mode=755
+  with_items:
+    - apif

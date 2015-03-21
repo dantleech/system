@@ -8,6 +8,7 @@ shortcut-add phpcr=http://www.github.com/phpcr/$0
 shortcut-add wikipedia=http://en.wikipedia.org/wiki/$0
 shortcut-add wiktionary=http://en.wiktionary.org/wiki/$0
 shortcut-add packagist=https://packagist.org/search?q=$0
+shortcut-add pirate=https://oldpiratebay.org/search?q=$0&sort=seeders
 
 set editor-command=gvim -f %s
 set webinspector=on

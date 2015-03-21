@@ -45,6 +45,9 @@ vicious.register(ethnetwidget, vicious.widgets.net, 'eth ▾ ${eth0 down_kb} ▴
 cpuwidget = widget({ type = "textbox" })
 vicious.register(cpuwidget, vicious.widgets.cpu, '<span color="lightgreen">$1%</span> | ')
 
+thermalwidget = widget({ type = "textbox" })
+vicious.register(thermalwidget, vicious.widgets.thermal, '<span color="lightblue">$1°С</span> | ', 11, "thermal_zone0")
+
 volumewidget = widget({ type = "textbox" })
 vicious.register(volumewidget, vicious.widgets.volume, '<span color="gold">$2 $1%</span> | ', 2, 'Master')
 

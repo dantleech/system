@@ -9,3 +9,4 @@
 - include: ruby.yml tags=ruby
 - include: etc.yml tags=etc
 - include: varnish.yml tags=varnish
+- include: nginx.yml tags=nginx

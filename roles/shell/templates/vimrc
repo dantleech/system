@@ -23,6 +23,9 @@ Plugin 'L9'
 Plugin 'vim-scripts/tlib'
 Plugin 'Shougo/vimproc.vim'
 
+" Grep buffers
+Plugin 'Buffer-grep'
+
 " Easy motion - <Leader>ww = forward, <Leader>bb = backwards
 Plugin 'Lokaltog/vim-easymotion'
 
@@ -62,7 +65,7 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
 
 " Powerful PHP completion (uses ctags)
-Plugin 'shawncplus/phpcomplete.vimu'
+Plugin 'shawncplus/phpcomplete.vim'
 " Plugin 'm2mdas/phpcomplete-extended' <-- nice, users composer. almost ideal. but buggy and adds latency when loading
 
 " YouCompleteMe

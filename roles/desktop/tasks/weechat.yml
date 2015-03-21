@@ -4,7 +4,6 @@
   with_items:
       - "weechat"
       - "weechat-plugins"
-      - "python-notify2"
 
 - name: Weechat configuration
   template: src=weechat_{{ item }}.conf dest="{{ user.home }}/.weechat/{{ item }}.conf"
@@ -12,15 +11,20 @@
       - irc
       - plugins
 
-- name: Install Python Plugins
-  template: src=weechat_plugin_{{ item }} dest="{{ user.home }}/.weechat/python/{{ item }}"
+- name: Install Lua Plugins
+  copy: src=weechat_plugin_{{ item }} dest="{{ user.home }}/.weechat/lua/{{ item }}" mode=0655
   with_items:
-      - lnotify.py
+      - naughtynotice.lua
 
-- name: Enable Python Plugins
-  file: dest="{{ user.home }}/.weechat/python/autoload/{{ item }}" src="{{ user.home }}/.weechat/python/{{ item }}" state=link
+- name: Enable Lua Plugins
+  file: dest="{{ user.home }}/.weechat/lua/autoload/{{ item }}" src="{{ user.home }}/.weechat/lua/{{ item }}" state=link force=yes
   with_items:
-      - lnotify.py
+      - naughtynotice.lua
+
+#- name: Disable Lua Plugins
+#  file: dest="{{ user.home }}/.weechat/lua/autoload/{{ item }}" src="{{ user.home }}/.weechat/lua/{{ item }}" state=absent
+#  with_items:
+#      - lnotify.py
 
 - name: Icon directory
   sudo: True
