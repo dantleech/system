@@ -22,6 +22,7 @@ Plugin 'Shougo/unite.vim'
 Plugin 'L9'
 Plugin 'vim-scripts/tlib'
 Plugin 'Shougo/vimproc.vim'
+Plugin 'chase/vim-ansible-yaml'
 
 " Grep buffers
 Plugin 'Buffer-grep'

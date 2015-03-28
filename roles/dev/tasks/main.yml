@@ -10,3 +10,4 @@
 - include: etc.yml tags=etc
 - include: varnish.yml tags=varnish
 - include: nginx.yml tags=nginx
+- include: jackrabbit.yml tags=jackrabbit

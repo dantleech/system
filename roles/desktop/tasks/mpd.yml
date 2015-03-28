@@ -10,6 +10,20 @@
   sudo: true
   template: src=mpd.conf dest="{{ user.home }}/.mpdconf"
 
+- name: Create mpd directories
+  file: path="{{ user.home }}/.config/mpd/{{ item }}" state=directory
+  with_items:
+    - "playlists"
+
+- name: Touch files
+  file: path="{{ user.home }}/.config/mpd/{{ item }}" state=touch
+  with_items:
+    - "mpd.log"
+    - "tag_cache"
+
+- name: Create ncmpp directory
+  file: path="{{ user.home }}/.ncmpcpp" state=directory
+
 - name: Copy ncmpp config
   template: src=ncmpcpp_config dest="{{ user.home }}/.ncmpcpp/config"
 

@@ -27,7 +27,7 @@ version = "0.1"
 weechat.register("naughtynotice", "alterecco", version, "GPL", "Naughty Notices for Awesome WM", "", "")
 
 weechat.hook_signal("*,irc_in2_PRIVMSG", "receive", "")
-weechat.hook_signal("*,irc_in2_JOIN", "receive", "")
+-- weechat.hook_signal("*,irc_in2_JOIN", "receive", "")
 
 weechat.hook_signal("hotlist_changed", "toggle_hotlist", "")
 
@@ -104,7 +104,7 @@ function receive(data, sig, message)
                 -- escape quotes in the message
                 message = message:gsub("['&<>\"]", { ["'"] = "&apos;", ["\""] = "&quot;", ["<"] = "&lt;", [">"] = "&gt;", ["&"] = "&amp;" })
                 icon='/usr/local/share/icons/irc_protocol.png'
-                os.execute(string.format("echo 'naughty.notify({ title=%q, text=%q, icon=%q})' | awesome-client", server, message, icon))
+                os.execute(string.format("echo 'naughty.notify({ title=%q, text=%q, icon=%q})' | env -u DBUS_SESSION_BUS_ADDRESS awesome-client", server, message, icon))
             end
         end
     end

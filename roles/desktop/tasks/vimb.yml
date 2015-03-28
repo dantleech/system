@@ -6,6 +6,9 @@
       - "libwebkit-dev"
       - "libgtk2.0-dev"
 
+- name: Create directory
+  file: state=directory path=~/.config/vimb/config
+
 - name: Clone vimb
   git: repo=https://github.com/fanglingsu/vimb.git update=no dest="{{ user.home }}/www/fanglingsu/vimb"
 

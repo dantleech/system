@@ -5,11 +5,17 @@
       - "weechat"
       - "weechat-plugins"
 
+- name: Create directory
+  file: state=directory path=~/.weechat 
+
 - name: Weechat configuration
   template: src=weechat_{{ item }}.conf dest="{{ user.home }}/.weechat/{{ item }}.conf"
   with_items:
       - irc
       - plugins
+
+- name: Create directory
+  file: state=directory path=~/.weechat/lua
 
 - name: Install Lua Plugins
   copy: src=weechat_plugin_{{ item }} dest="{{ user.home }}/.weechat/lua/{{ item }}" mode=0655
@@ -33,3 +39,5 @@
 - name: Install icon
   sudo: True
   copy: src=irc_protocol.png dest=/usr/local/share/icons/irc_protocol.png mode=0655
+
+

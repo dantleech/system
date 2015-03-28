@@ -5,6 +5,9 @@
       - "awesome"
       - "xserver-xephyr"
 
+- name: Create awesome directory
+  file: state=directory path=~/.config/awesome
+
 - name: Clone awmtt (awesome debugging tool)
   git: repo=https://github.com/mikar/awmtt.git dest="{{ user.src }}/mikar/awmtt" update=no
  

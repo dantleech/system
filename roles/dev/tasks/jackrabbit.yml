@@ -1,0 +1,6 @@
+# vim:ft=ansible:
+- name: Directory
+  file: path="{{ user.home }}/jars" state=directory
+
+- name: Jackrabbit
+  get_url: url="http://tweedo.com/mirror/apache/jackrabbit/2.10.0/jackrabbit-standalone-2.10.0.jar" dest="{{ user.home }}/jars/jackrabbit.jar"

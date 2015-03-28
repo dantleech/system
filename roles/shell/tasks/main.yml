@@ -9,6 +9,6 @@
 
 - include: misc.yml tags=misc
 - include: tmux.yml tags=tmux
-- include: tmuxinator.yml tags=tmuxinator
+# - include: tmuxinator.yml tags=tmuxinator
 - include: vim.yml tags=vim
 - include: zsh.yml tags=zsh

@@ -1,0 +1,11 @@
+- name: Install packages
+  sudo: True
+  apt: pkg={{ item }} state=present
+  with_items:
+      - "xfce4-terminal"
+
+- name: Create directory
+  file: state=directory path="{{ user.home }}/.config/xfce4/terminal"
+
+- name: Install config
+  copy: src=xfce4_terminalrc dest="{{ user.home }}/.config/xfce4/terminal"
