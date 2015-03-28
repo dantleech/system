@@ -1,0 +1,16 @@
+source:
+    path: "{{ user.home }}/www"
+    github:
+        - { org: symfony-cmf, repo: ResourceRestBundle }
+        - { org: symfony-cmf, repo: ResourceBundle }
+        - { org: symfony-cmf, repo: RoutingAutoBundle }
+        - { org: symfony-cmf, repo: RoutingAuto }
+
+        - { org: schmittjoh, repo: serializer }
+        - { org: schmittjoh, repo: JMSSerializerBundle }
+
+        - { org: sulu-io, repo: sulu }
+        - { org: sulu-io, repo: sulu-standard }
+
+        - { org: massiveart, repo: MassiveSearchBundle }
+        - { org: massiveart, repo: MassiveBuildBundle }

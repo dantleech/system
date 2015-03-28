@@ -1,0 +1,7 @@
+- name: Create directories
+  file: state=directory path="{{ source.path }}/{{ item.org }}"
+  with_items: source.github
+
+- name: Clone repos
+  git: repo="git@github.com:{{ item.org }}/{{ item.repo }}.git" update=no dest="{{ source.path }}/{{ item.org }}/{{ item.repo }}"
+  with_items: source.github
