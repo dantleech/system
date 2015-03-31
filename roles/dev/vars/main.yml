@@ -11,6 +11,21 @@ source:
 
         - { org: sulu-io, repo: sulu }
         - { org: sulu-io, repo: sulu-standard }
+        - { org: sulu-io, repo: sulu-docs }
+        - { org: sulu-io, repo: docs }
 
         - { org: massiveart, repo: MassiveSearchBundle }
         - { org: massiveart, repo: MassiveBuildBundle }
+
+        - { org: doctrine, repo: phpcr-odm }
+        - { org: doctrine, repo: DoctrinePHPCRBundle }
+        - { org: doctrine, repo: doctrine2 }
+
+        - { org: jackalope, repo: jackalope }
+        - { org: jackalope, repo: jackalope-doctrine-dbal }
+        - { org: jackalope, repo: jackalope-jackrabbit }
+
+hosts:
+    - 
+      host: "sulu.lo"
+      path: "sulu-io/sulu-standard/web"

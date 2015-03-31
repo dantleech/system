@@ -1,5 +1,0 @@
-- name: Install hosts
-  sudo: True
-  template: src=hosts dest=/etc/hosts mode=0644
-
-

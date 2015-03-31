@@ -1,6 +1,9 @@
 127.0.0.1	localhost
 127.0.1.1	dtlt410.Home	dtlt410
-127.0.0.1   sulu.lo
+
+{% for host in hosts %}
+127.0.0.1  {{ host.host }}
+{% endfor %}
 
 # The following lines are desirable for IPv6 capable hosts
 ::1     localhost ip6-localhost ip6-loopback

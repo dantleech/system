@@ -1,0 +1,12 @@
+<VirtualHost *:80>
+        AssignUserID daniel daniel
+        ServerName {{ item.host }}
+        ServerAlias {{ item.host }}
+        DocumentRoot {{ user.home }}/www/{{ item.path }}
+        DirectoryIndex app.php
+        <Directory {{ user.home }}/www/{{ item.path }}>
+          AllowOverride all 
+          Allow from All
+        </Directory>
+        CustomLog /var/log/apache2/{{ item.host }}.log combined 
+</VirtualHost>

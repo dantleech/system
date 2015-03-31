@@ -24,3 +24,4 @@ alias tmux="tmux -2"
 
 # use vim key bindings
 bindkey -v
+# xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
