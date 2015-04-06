@@ -1,0 +1,9 @@
+- name: Purge existing profiles
+  file: path={{ tmux_profile_dir }} state=absent
+
+- name: Recreate
+  file: path={{ tmux_profile_dir }} state=directory
+
+- name: Profiles
+  template: src=tmuxinator_profile.yml dest="{{ user.home }}/.tmuxinator/{{ item.org ~ "-" ~ item.repo | regex_replace("(.)([A-Z][a-z]+?)", "\\1-\\2") | lower }}.yml"
+  with_items: source.github

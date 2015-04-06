@@ -5,5 +5,5 @@
 - name: Install systemd service
   template: src=mail-notify.service dest={{ user.xdgconfig }}/systemd/user/mail-notify-daemon.service
 
-- name: Enable service
+- name: Enable mail notify service
   command: systemctl --user enable mail-notify-daemon

@@ -1,0 +1,12 @@
+- name: Install packages
+  sudo: True
+  apt: pkg={{ item }} state=present
+  with_items:
+      - "xscreensaver"
+      - "xscreensaver-data"
+      - "xscreensaver-data-extra"
+      - "xscreensaver-gl"
+      - "xscreensaver-gl-extra"
+
+- name: Install screensaver config
+  copy: src="xscreensaver" dest="{{ user.xdgconfig }}/.xscreensaver"

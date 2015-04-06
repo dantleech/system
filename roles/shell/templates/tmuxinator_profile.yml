@@ -1,8 +1,0 @@
-name: {{ item.name }}
-root: ~/www/{{ item.vendor }}/{{ item.repo }}
-
-windows:
-  - editor: vim .
-  - shell:  ~
-
-pre: find ./ -name "*.swp" -delete

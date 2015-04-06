@@ -1,0 +1,7 @@
+name: {{ item.org ~ "-" ~ item.repo | regex_replace("(.)([A-Z][a-z]+?)", "\\1-\\2") | lower }}
+root: ~/www/{{ item.org }}/{{ item.repo }}
+
+windows:
+  - editor: vim .
+
+pre: find ./ -name "*.swp" -delete

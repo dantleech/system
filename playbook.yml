@@ -1,8 +1,8 @@
 - hosts: local
   gather_facts: False
   roles:
-      - { role: dev, tags: [dev] }
       - { role: shell, tags: [shell] }
+      - { role: dev, tags: [dev] }
       - { role: mail, tags: [mail] }
       - { role: desktop, tags: [desktop] }
   handlers:

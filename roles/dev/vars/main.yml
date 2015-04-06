@@ -1,31 +1,38 @@
 source:
     path: "{{ user.home }}/www"
     github:
-        - { org: symfony-cmf, repo: ResourceRestBundle }
-        - { org: symfony-cmf, repo: ResourceBundle }
-        - { org: symfony-cmf, repo: RoutingAutoBundle }
-        - { org: symfony-cmf, repo: RoutingAuto }
-
-        - { org: schmittjoh, repo: serializer }
-        - { org: schmittjoh, repo: JMSSerializerBundle }
-
-        - { org: sulu-io, repo: sulu }
-        - { org: sulu-io, repo: sulu-standard }
-        - { org: sulu-io, repo: sulu-docs }
-        - { org: sulu-io, repo: docs }
-
-        - { org: massiveart, repo: MassiveSearchBundle }
-        - { org: massiveart, repo: MassiveBuildBundle }
-
-        - { org: doctrine, repo: phpcr-odm }
+        - { org: dantleech, repo: system }
+        - { org: dantleech, repo: dtlweb }
         - { org: doctrine, repo: DoctrinePHPCRBundle }
         - { org: doctrine, repo: doctrine2 }
-
+        - { org: doctrine, repo: phpcr-odm }
         - { org: jackalope, repo: jackalope }
         - { org: jackalope, repo: jackalope-doctrine-dbal }
         - { org: jackalope, repo: jackalope-jackrabbit }
+        - { org: massiveart, repo: MassiveBuildBundle }
+        - { org: massiveart, repo: MassiveSearchBundle }
+        - { org: phpcr, repo: phpcr }
+        - { org: phpcr, repo: phpcr-shell }
+        - { org: phpcr, repo: phpcr-utils }
+        - { org: phpcr, repo: phpcr-api-tests }
+        - { org: schmittjoh, repo: JMSSerializerBundle }
+        - { org: schmittjoh, repo: serializer }
+        - { org: sulu-io, repo: docs }
+        - { org: sulu-io, repo: sulu }
+        - { org: sulu-io, repo: sulu-docs }
+        - { org: sulu-io, repo: sulu-standard }
+        - { org: symfony-cmf, repo: ResourceBundle }
+        - { org: symfony-cmf, repo: ResourceRestBundle }
+        - { org: symfony-cmf, repo: RoutingAuto }
+        - { org: symfony-cmf, repo: RoutingAutoBundle }
+        - { org: symfony-cmf, repo: symfony-cmf-website }
 
 hosts:
     - 
       host: "sulu.lo"
       path: "sulu-io/sulu-standard/web"
+    - 
+      host: "cmf-website.lo"
+      path: "symfony-cmf/symfony-cmf-website/web"
+
+tmux_profile_dir: "{{ user.home }}/.tmuxinator"

@@ -4,3 +4,4 @@
 - include: weechat.yml tags=weechat
 - include: mpd.yml tags=mpd
 - include: terminal.yml tags=terminal
+- include: screensaver.yml tags=screensaver

@@ -66,7 +66,8 @@ globalkeys = awful.util.table.join(
               end),
     awful.key({ }, "XF86AudioRaiseVolume", function() awful.util.spawn("amixer -c 0 sset 'Master',0 2dB+") end),    
     awful.key({ }, "XF86AudioLowerVolume", function() awful.util.spawn("amixer -c 0 sset 'Master',0 2dB-") end),    
-    awful.key({ }, "XF86AudioMute", function() awful.util.spawn("amixer set Master toggle") end)
+    awful.key({ }, "XF86AudioMute", function() awful.util.spawn("amixer set Master toggle") end),
+    awful.key({ modkey, "Control" }, "l", function () awful.util.spawn("xscreensaver-command -lock") end)
 )
 
 clientkeys = awful.util.table.join(
