@@ -9,8 +9,11 @@ source:
         - { org: jackalope, repo: jackalope }
         - { org: jackalope, repo: jackalope-doctrine-dbal }
         - { org: jackalope, repo: jackalope-jackrabbit }
+        - { org: jackalope, repo: jackalope-fs }
         - { org: massiveart, repo: MassiveBuildBundle }
         - { org: massiveart, repo: MassiveSearchBundle }
+        - { org: massiveart, repo: husky }
+        - { org: neovim, repo: neovim }
         - { org: phpcr, repo: phpcr }
         - { org: phpcr, repo: phpcr-shell }
         - { org: phpcr, repo: phpcr-utils }
@@ -26,6 +29,7 @@ source:
         - { org: symfony-cmf, repo: RoutingAuto }
         - { org: symfony-cmf, repo: RoutingAutoBundle }
         - { org: symfony-cmf, repo: symfony-cmf-website }
+        - { org: symfony-cmf, repo: symfony-cmf-docs }
 
 hosts:
     - 

@@ -1,0 +1,6 @@
+# Fast Fuzzy finder
+- name: Install fzf
+  git: repo="https://github.com/junegunn/fzf.git" dest="{{ user.home }}/.fzf" depth=1
+
+- name: Install
+  command: "{{ user.home }}/.fzf/install"

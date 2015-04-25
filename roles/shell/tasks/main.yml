@@ -12,3 +12,4 @@
 - include: tmuxinator.yml tags=tmux
 - include: vim.yml tags=vim
 - include: zsh.yml tags=zsh
+- include: fzf.yml tags=fzf

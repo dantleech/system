@@ -102,7 +102,7 @@ for s = 1, screen.count() do
             layout = awful.widget.layout.horizontal.leftright
         },
         mylayoutbox[s],
-        mytextclock,
+        --mytextclock,
         -- volumewidget,
         uptimewidget,
         cpuwidget,

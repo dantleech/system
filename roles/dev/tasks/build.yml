@@ -1,0 +1,12 @@
+- name: Install packages
+  sudo: True
+  apt: pkg={{ item }} state=present
+  with_items:
+    - "libtool"
+    - "libtool-bin"
+    - "autoconf"
+    - "automake"
+    - "cmake"
+    - "g++"
+    - "pkg-config"
+    - "unzip"

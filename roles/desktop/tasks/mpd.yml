@@ -27,4 +27,5 @@
 - name: Copy ncmpp config
   template: src=ncmpcpp_config dest="{{ user.home }}/.ncmpcpp/config"
 
-
+- name: Copy ncmpp keys config
+  template: src=ncmpcpp_keys dest="{{ user.home }}/.ncmpcpp/keys"
