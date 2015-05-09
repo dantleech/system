@@ -38,5 +38,11 @@ hosts:
     - 
       host: "cmf-website.lo"
       path: "symfony-cmf/symfony-cmf-website/web"
+    - 
+      host: "stanton.lo"
+      path: "sulu-io/st-anton-am-arlberg/www.stantonamarlberg.com"
+    - 
+      host: "stantondm.lo"
+      path: "sulu-io/st-anton-am-arlberg-dm/www.stantonamarlberg.com"
 
 tmux_profile_dir: "{{ user.home }}/.tmuxinator"

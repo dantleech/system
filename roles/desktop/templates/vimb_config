@@ -1,13 +1,17 @@
 shortcut-add gg=https://www.google.co.uk/#q=$0
 shortcut-add gh=https://www.github.com/$0/$1
-shortcut-add sulu=https://www.github.com/sulu-cmf/$0
+shortcut-add sulu=https://www.github.com/sulu-io/$0
 shortcut-add cmf=https://www.github.com/symfony-cmf/$0
 shortcut-add jlope=https://www.github.com/jackalope/$0
+shortcut-add jackalope=https://www.github.com/jackalope/$0
+shortcut-add jackalope2=https://www.github.com/jackalope2/$0
 shortcut-add php=http://php.net/manual-lookup.php?pattern=$0
 shortcut-add phpcrio=http://phpcr.github.io
 shortcut-add phpcr=http://www.github.com/phpcr/$0
 shortcut-add wikipedia=http://en.wikipedia.org/wiki/$0
 shortcut-add wiktionary=http://en.wiktionary.org/wiki/$0
+shortcut-add dict=http://en.wiktionary.org/wiki/$0
+shortcut-add d=http://en.wiktionary.org/wiki/$0
 shortcut-add packagist=https://packagist.org/search?q=$0
 shortcut-add pirate=https://oldpiratebay.org/search?q=$0&sort=seeders
 

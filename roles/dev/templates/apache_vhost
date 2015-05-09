@@ -1,5 +1,4 @@
 <VirtualHost *:80>
-        AssignUserID daniel daniel
         ServerName {{ item.host }}
         ServerAlias {{ item.host }}
         DocumentRoot {{ user.home }}/www/{{ item.path }}

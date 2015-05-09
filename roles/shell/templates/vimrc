@@ -25,6 +25,10 @@ Plugin 'vim-scripts/tlib'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'chase/vim-ansible-yaml'
 
+" Color scheme
+Plugin 'vim-scripts/twilight256.vim.git'
+" Plugin 'tomasr/molokai'
+
 " Grep buffers
 Plugin 'Buffer-grep'
 
@@ -276,6 +280,12 @@ let g:phpunit_testroot = 'tests'
 "   let g:neocomplete#sources#omni#input_patterns = {}
 " endif
 
+" Color scheme
+color twilight256
+" color molokai
+" let g:rehash256 = 1
+" let g:molokai_original = 1
+
 " PDV config
 let g:pdv_template_dir = "{{ vim.pdv_template_dir }}"
 
@@ -338,6 +348,15 @@ nnoremap <silent><leader>pcf :call PhpCsFixerFixFile()<CR>
 
 " PDV PhpDocumentor
 nnoremap <silent><leader>dd :call pdv#DocumentWithSnip()<CR>
+
+" Remap C-w C-w to C-w C-o, like in tmux
+nnoremap <C-w><C-o> <C-w><C-w>
+nnoremap <C-w>o <C-w><C-w>
+
+" Replace doc with {@inheritDoc}
+nnoremap <silent><leader>id /public.*;<CR>kkV/\/\*\*<CR>NjdkA<CR>{@inheritDoc}<ESC>jjj"<CR>
+" Replace doc with {@inheritDoc} and implement abstract method
+nnoremap <silent><leader>ii /public.*;<CR>kkV/\/\*\*<CR>NjdkA<CR>{@inheritDoc}<ESC>jj$xo{<ESC>A<CR>}<ESC>
 
 " neocomplete
 " inoremap <expr><C-g>     neocomplete#undo_completion()

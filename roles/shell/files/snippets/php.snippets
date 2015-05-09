@@ -1,3 +1,4 @@
+
 snippet inheritdoc "Inherit docblock"
 /**
  * {@inheritDoc}
@@ -258,6 +259,17 @@ endsnippet
 snippet phputc "PHPUnit Frammework Testcase"
 endsnippet
 
+snippet interface "Interface declaration template" !b
+<?php
+
+namespace ${1:`!v substitute(substitute(expand("%:h"), '\v^\w+\/(\u)', '\1', ''), '\/', '\\', 'g')`};
+
+interface ${1:`!v expand("%:t:r")`}
+{
+    $0;
+}
+endsnippet
+
 snippet class "Class declaration template" !b
 <?php
 
@@ -346,7 +358,19 @@ snippet cmfhead "CMF header"
 /*
  * This file is part of the Symfony CMF package.
  *
- * (c) 2011-2014 Symfony CMF
+ * (c) 2011-2015 Symfony CMF
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+ $0
+endsnippet
+
+snippet dtlhead "DTL header"
+/*
+ * This file is part of the <package> package.
+ *
+ * (c) 2011-2015 Daniel Leech 
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.

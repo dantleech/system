@@ -37,10 +37,10 @@ memwidget = widget({ type = "textbox" })
 vicious.register(memwidget, vicious.widgets.mem, '<span color="lightgreen">$2</span> / $3MB | ', 13)
 
 wlannetwidget = widget({ type = "textbox" })
-vicious.register(wlannetwidget, vicious.widgets.net, 'wln ▾ ${wlan0 down_kb} ▴ ${wlan0 up_kb} | ', 3)
+vicious.register(wlannetwidget, vicious.widgets.net, 'wln ▾ ${wlan1 down_kb} ▴ ${wlan1 up_kb} | ', 3)
 
 ethnetwidget = widget({ type = "textbox" })
-vicious.register(ethnetwidget, vicious.widgets.net, 'eth ▾ ${eth0 down_kb} ▴ ${eth0 up_kb} | ', 3)
+vicious.register(ethnetwidget, vicious.widgets.net, 'eth ▾ ${eth1 down_kb} ▴ ${eth1 up_kb} | ', 3)
 
 cpuwidget = widget({ type = "textbox" })
 vicious.register(cpuwidget, vicious.widgets.cpu, '<span color="lightgreen">$1%</span> | ')
