@@ -39,6 +39,4 @@ require("menu")
 require("layout")
 require("bindings")
 require("rules")
-
-
-
+require("autostart")

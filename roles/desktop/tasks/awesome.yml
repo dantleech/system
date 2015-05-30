@@ -29,3 +29,7 @@
     - rules.lua
     - variables.lua
     - widgets.lua
+    - autostart.lua
+
+- name: Install xmodmap config
+  template: src=xmodmaprc dest="{{ user.home }}/.xmodmaprc"

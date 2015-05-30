@@ -12,6 +12,7 @@
   template: src=weechat_{{ item }}.conf dest="{{ user.home }}/.weechat/{{ item }}.conf"
   with_items:
       - irc
+      - weechat
       - plugins
 
 - name: Create directory

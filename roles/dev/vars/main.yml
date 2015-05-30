@@ -36,6 +36,9 @@ hosts:
       host: "sulu.lo"
       path: "sulu-io/sulu-standard/web"
     - 
+      host: "suludm.lo"
+      path: "sulu-io/sulu-object-mapper-edition/web"
+    - 
       host: "cmf-website.lo"
       path: "symfony-cmf/symfony-cmf-website/web"
     - 

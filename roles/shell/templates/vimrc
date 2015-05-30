@@ -25,6 +25,12 @@ Plugin 'vim-scripts/tlib'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'chase/vim-ansible-yaml'
 
+" Generate PHPUnit tests
+Plugin 'dantleech/vim-phpunit'
+
+" Determine the namespace for the current file
+Plugin 'dantleech/vim-phpnamespace'
+
 " Color scheme
 Plugin 'vim-scripts/twilight256.vim.git'
 " Plugin 'tomasr/molokai'
@@ -62,7 +68,6 @@ Plugin 'pangloss/vim-javascript'
 
 " Nerdtree file browser
 Plugin 'scrooloose/nerdtree'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
 
 " Easily comment - <Leader>cc
 Plugin 'scrooloose/nerdcommenter'
@@ -357,6 +362,13 @@ nnoremap <C-w>o <C-w><C-w>
 nnoremap <silent><leader>id /public.*;<CR>kkV/\/\*\*<CR>NjdkA<CR>{@inheritDoc}<ESC>jjj"<CR>
 " Replace doc with {@inheritDoc} and implement abstract method
 nnoremap <silent><leader>ii /public.*;<CR>kkV/\/\*\*<CR>NjdkA<CR>{@inheritDoc}<ESC>jj$xo{<ESC>A<CR>}<ESC>
+
+" Generate PHPUnit test cases
+nnoremap <silent><leader>pt :call PhpunitGenerate()<CR>
+nnoremap <silent><leader>pp :call PhpunitRun()<CR>
+
+" Insert the current namespace
+nnoremap <silent><leader>nn :call PhpNamespaceInsert()<CR>
 
 " neocomplete
 " inoremap <expr><C-g>     neocomplete#undo_completion()
