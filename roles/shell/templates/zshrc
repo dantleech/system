@@ -17,10 +17,12 @@ zstyle ':prezto:module:git:status:ignore' submodules 'all'
 zstyle ':prezto:module:git:info:context:subcontext' format 'string'
 
 alias dt=dict
-alias cp="cp"
+unset cp
+unset mv
 alias tmuxa="tmux 2at -t"
 alias tmuxn="tmux new -s"
 alias tmux="tmux -2"
+alias mux="env TERM=xterm-256color mux"
 
 # use vim key bindings
 bindkey -v

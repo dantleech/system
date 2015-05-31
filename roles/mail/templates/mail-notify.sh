@@ -1,5 +1,7 @@
 #!/bin/bash
 
+unset DBUS_SESSION_BUS_ADDRESS
+
 # Watch Maildir inboxes for new mails and send a summary notification with notify-send. Tested and "works perfectly" with dunst.
 # Dependencies: inotifywait from inotify-tools package.
 maildir_path="{{ user.mail.basedir }}"  # Path to Maildir root.
