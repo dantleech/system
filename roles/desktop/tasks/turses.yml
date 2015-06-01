@@ -1,0 +1,3 @@
+- name: Install turses
+  sudo: true
+  pip: name=turses

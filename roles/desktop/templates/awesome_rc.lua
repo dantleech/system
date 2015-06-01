@@ -34,6 +34,17 @@ do
     end)
 end
 
+--transparency
+--awesome.add_signal("focus", function(c)
+    --c.border_color = beautiful.border_focus
+    --c.opacity = 1
+--end)
+
+--awesome.add_signal("unfocus", function(c)
+    --c.border_color = beautiful.border_normal
+    --c.opacity = 0.7
+--end)
+
 require("variables")
 require("menu")
 require("layout")
