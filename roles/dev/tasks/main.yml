@@ -14,3 +14,4 @@
 - include: selenium.yml tags=selenium
 - include: tmuxinator.yml tags=tmux
 - include: build.yml tags=build
+- include: travis.yml tags=travis

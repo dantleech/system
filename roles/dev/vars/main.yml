@@ -26,6 +26,7 @@ source:
         - { org: sulu-io, repo: sulu }
         - { org: sulu-io, repo: sulu-docs }
         - { org: sulu-io, repo: sulu-standard }
+        - { org: sulu-io, repo: sulu-document-manager }
         - { org: symfony-cmf, repo: ResourceBundle }
         - { org: symfony-cmf, repo: ResourceRestBundle }
         - { org: symfony-cmf, repo: RoutingAuto }

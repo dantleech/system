@@ -3,6 +3,7 @@
   apt: pkg={{ item }} state=present
   with_items:
       - "fonts-powerline" # for vim status bar
+      - "ntp"
 
 - name: Assert directories exist
   file: path="{{ user.xdgconfig }}/systemd/user" state=directory
