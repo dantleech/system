@@ -9,3 +9,6 @@
 
 - name: Create directory
   file: path="{{ user.home }}/.tmuxinator" state=directory
+
+- name: Install profiles
+  copy: src=mux/ dest={{ user.home }}/.tmuxinator

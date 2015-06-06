@@ -1,0 +1,5 @@
+name: weechat
+root: ~/
+
+windows:
+  - weechat: weechat

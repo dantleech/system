@@ -1,4 +1,5 @@
 #!/bin/bash
 
 clear
-travis monitor {% for repo in source.github %}-r {{ repo.org }}/{{ repo.repo }} {% endfor %}
+unset DBUS_SESSION_BUS_ADDRESS
+travis monitor --builds --notify {% for repo in source.github %}-r {{ repo.org }}/{{ repo.repo }} {% endfor %}

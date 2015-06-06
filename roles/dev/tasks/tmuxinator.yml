@@ -1,5 +1,5 @@
-- name: Purge existing profiles
-  file: path={{ tmux_profile_dir }} state=absent
+#- name: Purge existing profiles
+  #file: path={{ tmux_profile_dir }} state=absent
 
 - name: Recreate
   file: path={{ tmux_profile_dir }} state=directory
