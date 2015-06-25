@@ -1,0 +1,5 @@
+name: notes
+root: ~/ownCloud
+
+windows:
+  - vim: vim .

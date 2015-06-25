@@ -1,0 +1,5 @@
+name: travis
+root: ~/
+
+windows:
+  - travis: travismon

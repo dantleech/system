@@ -25,6 +25,15 @@ Plugin 'vim-scripts/tlib'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'chase/vim-ansible-yaml'
 
+" Preview images in ASCII
+Plugin 'ashisha/image.vim'
+
+" Aligning
+Plugin 'godlygeek/tabular'
+
+" RST Tables
+Plugin 'nvie/vim-rst-tables'
+
 " Generate PHPUnit tests
 Plugin 'dantleech/vim-phpunit'
 
