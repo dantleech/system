@@ -5,3 +5,4 @@
 - include: mpd.yml tags=mpd
 - include: terminal.yml tags=terminal
 - include: screensaver.yml tags=screensaver
+- include: syncthing.yml tags=syncthing

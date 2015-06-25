@@ -1,3 +1,7 @@
 - name: update-desktop-database
   sudo: True
   command: update-desktop-database /usr/share/applications
+
+- name: restart-syncthing
+  sudo: true
+  service: name=synthing state=restarted
