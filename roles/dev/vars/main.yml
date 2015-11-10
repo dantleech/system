@@ -5,6 +5,9 @@ source:
         - { org: dantleech, repo: dtlweb }
         - { org: phpbench, repo: phpbench }
         - { org: phpbench, repo: cellular }
+        - { org: phpbench, repo: tabular }
+        - { org: CouscousPHP, repo: Couscous }
+        - { org: CouscousPHP, repo: Template-Dark }
         - { org: doctrine, repo: DoctrinePHPCRBundle }
         - { org: doctrine, repo: doctrine2 }
         - { org: doctrine, repo: phpcr-odm }
@@ -22,6 +25,7 @@ source:
         - { org: phpcr, repo: phpcr-shell }
         - { org: phpcr, repo: phpcr-utils }
         - { org: phpcr, repo: phpcr-api-tests }
+        - { org: phpspec, repo: prophecy }
         - { org: schmittjoh, repo: JMSSerializerBundle }
         - { org: schmittjoh, repo: serializer }
         - { org: sulu-io, repo: docs }
@@ -29,13 +33,20 @@ source:
         - { org: sulu-io, repo: sulu-docs }
         - { org: sulu-io, repo: sulu-standard }
         - { org: sulu-io, repo: sulu-document-manager }
+        - { org: symfony, repo: symfony }
+        - { org: symfony, repo: symfony-docs }
         - { org: symfony-cmf, repo: Resource }
         - { org: symfony-cmf, repo: ResourceBundle }
         - { org: symfony-cmf, repo: ResourceRestBundle }
+        - { org: symfony-cmf, repo: Routing }
+        - { org: symfony-cmf, repo: RoutingBundle }
         - { org: symfony-cmf, repo: RoutingAuto }
         - { org: symfony-cmf, repo: RoutingAutoBundle }
+        - { org: symfony-cmf, repo: MenuBundle }
+        - { org: symfony-cmf, repo: Testing }
         - { org: symfony-cmf, repo: symfony-cmf-website }
         - { org: symfony-cmf, repo: symfony-cmf-docs }
+        - { org: webmozart, repo: console }
 
 hosts:
     - 

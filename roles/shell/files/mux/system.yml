@@ -1,0 +1,5 @@
+name: system
+root: ~/www/dantleech/system
+
+windows:
+  - system: vim .

@@ -1,0 +1,15 @@
+- name: Install GO
+  sudo: true
+  apt: pkg=golang-go state=installed
+
+- name: Install USB header files
+  sudo: true
+  apt: pkg=libusb-dev state=installed
+
+- name: Create tmp directory
+  sudo: true
+  file: state=directory path=/tmp/go
+
+- name: Install go
+  sudo: true
+  command: env GOPATH=/tmp/go go get github.com/hanwen/go-mtpfs

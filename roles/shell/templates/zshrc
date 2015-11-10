@@ -12,6 +12,7 @@ fi
 
 export EDITOR=vim
 export VISUAL=vim
+export PATH=~/.composer/vendor/bin:$PATH
 
 zstyle ':prezto:module:git:status:ignore' submodules 'all'
 zstyle ':prezto:module:git:info:context:subcontext' format 'string'

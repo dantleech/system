@@ -1,0 +1,10 @@
+- name: Install packages
+  sudo: True
+  apt: pkg={{ item }} state=present
+  with_items:
+      - "scrot"
+
+- name: Install capture script
+  sudo: True
+  copy: src="scrotclip" dest="/usr/local/bin/scrotclip" mode=755
+

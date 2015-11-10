@@ -25,7 +25,7 @@ ipwidget.text = " | IP "
 ipwidgettimer = timer({ timeout = 9 })
 ipwidgettimer:add_signal("timeout",                                        
     function()                                                                    
-        fh = assert(io.popen("hostname -I", "r"))                       
+        fh = assert(io.popen("hostname -I | cut -d ' ' -f 1", "r"))                       
         ipwidget.text = fh:read("*l") .. " | "    
         fh:close()                                                                  
     end                                                                           

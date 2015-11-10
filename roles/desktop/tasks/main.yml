@@ -6,3 +6,4 @@
 - include: terminal.yml tags=terminal
 - include: screensaver.yml tags=screensaver
 - include: syncthing.yml tags=syncthing
+- include: screenshot.yml tags=screenshot
