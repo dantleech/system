@@ -1,15 +1,15 @@
 -- Standard awesome library
-require("awful")
+awful = require("awful")
 require("awful.autofocus")
 require("awful.rules")
 -- Theme handling library
-require("beautiful")
+beautiful = require("beautiful")
 -- Notification library
-require("naughty")
+naughty = require("naughty")
 
 -- Load Debian menu entries
 require("debian.menu")
-require("vicious")
+vicious = require("vicious")
 
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -22,7 +22,7 @@ end
 -- Handle runtime errors after startup
 do
     local in_error = false
-    awesome.add_signal("debug::error", function (err)
+    awesome.connect_signal("debug::error", function (err)
         -- Make sure we don't go into an endless error loop
         if in_error then return end
         in_error = true
@@ -35,12 +35,12 @@ do
 end
 
 --transparency
---awesome.add_signal("focus", function(c)
+--awesome.connect_signal("focus", function(c)
     --c.border_color = beautiful.border_focus
     --c.opacity = 1
 --end)
 
---awesome.add_signal("unfocus", function(c)
+--awesome.connect_signal("unfocus", function(c)
     --c.border_color = beautiful.border_normal
     --c.opacity = 0.7
 --end)

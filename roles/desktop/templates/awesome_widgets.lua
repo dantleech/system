@@ -1,55 +1,57 @@
+require("wibox")
+
 -- Create a textclock widget
 mytextclock = awful.widget.textclock({ align = "right" })
 
 -- Create an ACPI widget                                                        
-batterywidget = widget({ type = "textbox" })                                    
-batterywidget.text = "| Battery | "                                            
+batterywidget = wibox.widget.textbox()                                    
+batterywidget.set_text("| Battery | ")
 batterywidgettimer = timer({ timeout = 5 })                                     
-batterywidgettimer:add_signal("timeout",                                        
+batterywidgettimer:connect_signal("timeout",                                        
     function()                                                                    
         fh = assert(io.popen("acpi | cut -d, -f 2,3 -", "r"))                       
-        batterywidget.text = "|" .. fh:read("*l") .. " | "                         
+        batterywidget.set_text("|" .. fh:read("*l") .. " | ")
         fh:close()                                                                  
     end                                                                           
 )                                                                               
 batterywidgettimer:start()
 
 -- Create an ACPI widget                                                        
-uptimewidget = widget({ type = "textbox" })
+uptimewidget = wibox.widget.textbox()
 vicious.register(uptimewidget, vicious.widgets.uptime, '$4 $5 $6 | $1d$2h$3m | ', 13)
 
 
 -- Create an ACPI widget                                                        
-ipwidget = widget({ type = "textbox" })                                    
-ipwidget.text = " | IP "                                            
+ipwidget = wibox.widget.textbox()                                    
+ipwidget.set_text(" | IP ")
 ipwidgettimer = timer({ timeout = 9 })
-ipwidgettimer:add_signal("timeout",                                        
+ipwidgettimer:connect_signal("timeout",                                        
     function()                                                                    
         fh = assert(io.popen("hostname -I | cut -d ' ' -f 1", "r"))                       
-        ipwidget.text = fh:read("*l") .. " | "    
+        ipwidget.set_text(fh:read("*l") .. " | ")
         fh:close()                                                                  
     end                                                                           
 )                                                                               
 
 ipwidgettimer:start()
 
-memwidget = widget({ type = "textbox" })
+memwidget = wibox.widget.textbox()
 vicious.register(memwidget, vicious.widgets.mem, '<span color="lightgreen">$2</span> / $3MB | ', 13)
 
-wlannetwidget = widget({ type = "textbox" })
+wlannetwidget = wibox.widget.textbox()
 vicious.register(wlannetwidget, vicious.widgets.net, 'wln ▾ ${wlan1 down_kb} ▴ ${wlan1 up_kb} | ', 3)
 
-ethnetwidget = widget({ type = "textbox" })
+ethnetwidget = wibox.widget.textbox()
 vicious.register(ethnetwidget, vicious.widgets.net, 'eth ▾ ${eth1 down_kb} ▴ ${eth1 up_kb} | ', 3)
 
-cpuwidget = widget({ type = "textbox" })
+cpuwidget = wibox.widget.textbox()
 vicious.register(cpuwidget, vicious.widgets.cpu, '<span color="lightgreen">$1%</span> | ')
 
-thermalwidget = widget({ type = "textbox" })
+thermalwidget = wibox.widget.textbox()
 vicious.register(thermalwidget, vicious.widgets.thermal, '<span color="lightblue">$1°С</span> | ', 11, "thermal_zone0")
 
-volumewidget = widget({ type = "textbox" })
+volumewidget = wibox.widget.textbox()
 vicious.register(volumewidget, vicious.widgets.volume, '<span color="gold">$2 $1%</span> | ', 2, 'Master')
 
 -- Create a systray
-mysystray = widget({ type = "systray" })
+mysystray = wibox.widget.textbox()

@@ -5,10 +5,10 @@ layouts =
     awful.layout.suit.tile.bottom,
 --    awful.layout.suit.tile.top,
     awful.layout.suit.floating,
---    awful.layout.suit.tile,
+    awful.layout.suit.tile,
 --    awful.layout.suit.fair,
 --    awful.layout.suit.fair.horizontal,
---    awful.layout.suit.spiral,
+    awful.layout.suit.spiral,
 --    awful.layout.suit.spiral.dwindle,
 --    awful.layout.suit.max,
 --    awful.layout.suit.max.fullscreen,
@@ -60,7 +60,7 @@ mytasklist.buttons = awful.util.table.join(
                                                   instance:hide()
                                                   instance = nil
                                               else
-                                                  instance = awful.menu.clients({ width=250 })
+                                                  instance = awful.menu.clients({ theme = { width=250 } })
                                               end
                                           end),
                      awful.button({ }, 4, function ()
@@ -84,12 +84,10 @@ for s = 1, screen.count() do
                            awful.button({ }, 4, function () awful.layout.inc(layouts, 1) end),
                            awful.button({ }, 5, function () awful.layout.inc(layouts, -1) end)))
     -- Create a taglist widget
-    mytaglist[s] = awful.widget.taglist(s, awful.widget.taglist.label.all, mytaglist.buttons)
+    mytaglist[s] = awful.widget.taglist(s, awful.widget.taglist.filter.all, mytaglist.buttons)
 
     -- Create a tasklist widget
-    mytasklist[s] = awful.widget.tasklist(function(c)
-                                              return awful.widget.tasklist.label.currenttags(c, s)
-                                          end, mytasklist.buttons)
+    mytasklist[s] = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, mytasklist.buttons)
 
     -- Create the wibox
     mywibox[s] = awful.wibox({ position = "top", screen = s })

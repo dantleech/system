@@ -1,6 +1,7 @@
 source:
     path: "{{ user.home }}/www"
     github:
+        - { org: chjj, repo: blessed }
         - { org: dantleech, repo: system }
         - { org: dantleech, repo: dtlweb }
         - { org: phpbench, repo: phpbench }
@@ -22,6 +23,7 @@ source:
         - { org: puli, repo: puli }
         - { org: puli, repo: repository }
         - { org: phpcr, repo: phpcr }
+        - { org: phpcr, repo: phpcr-benchmarks }
         - { org: phpcr, repo: phpcr-shell }
         - { org: phpcr, repo: phpcr-utils }
         - { org: phpcr, repo: phpcr-api-tests }
