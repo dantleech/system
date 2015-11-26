@@ -5,6 +5,7 @@
       - "ruby"
 
 - name: Install tmuxinator
+  sudo: True
   gem: name=tmuxinator state=present user_install=no
 
 - name: Create directory

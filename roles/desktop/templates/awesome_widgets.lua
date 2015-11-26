@@ -1,16 +1,16 @@
-require("wibox")
+wibox = require("wibox")
 
 -- Create a textclock widget
-mytextclock = awful.widget.textclock({ align = "right" })
+mytextclock = awful.widget.textclock()
 
 -- Create an ACPI widget                                                        
 batterywidget = wibox.widget.textbox()                                    
-batterywidget.set_text("| Battery | ")
+batterywidget:set_text("| Battery | ")
 batterywidgettimer = timer({ timeout = 5 })                                     
 batterywidgettimer:connect_signal("timeout",                                        
     function()                                                                    
         fh = assert(io.popen("acpi | cut -d, -f 2,3 -", "r"))                       
-        batterywidget.set_text("|" .. fh:read("*l") .. " | ")
+        batterywidget:set_text("|" .. fh:read("*l") .. " | ")
         fh:close()                                                                  
     end                                                                           
 )                                                                               
@@ -23,12 +23,12 @@ vicious.register(uptimewidget, vicious.widgets.uptime, '$4 $5 $6 | $1d$2h$3m | '
 
 -- Create an ACPI widget                                                        
 ipwidget = wibox.widget.textbox()                                    
-ipwidget.set_text(" | IP ")
+ipwidget:set_text(" | IP ")
 ipwidgettimer = timer({ timeout = 9 })
 ipwidgettimer:connect_signal("timeout",                                        
     function()                                                                    
         fh = assert(io.popen("hostname -I | cut -d ' ' -f 1", "r"))                       
-        ipwidget.set_text(fh:read("*l") .. " | ")
+        ipwidget:set_text(fh:read("*l") .. " | ")
         fh:close()                                                                  
     end                                                                           
 )                                                                               

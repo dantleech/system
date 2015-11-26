@@ -1,3 +1,5 @@
+awful.rules = require("awful.rules")
+
 awful.rules.rules = {
     -- All clients will match this rule.
     { rule = { },

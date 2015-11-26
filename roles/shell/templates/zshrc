@@ -18,8 +18,8 @@ zstyle ':prezto:module:git:status:ignore' submodules 'all'
 zstyle ':prezto:module:git:info:context:subcontext' format 'string'
 
 alias dt=dict
-unset cp
-unset mv
+unalias cp 
+unalias mv
 alias tmuxa="tmux 2at -t"
 alias tmuxn="tmux new -s"
 alias tmux="tmux -2"

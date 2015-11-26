@@ -1,9 +1,9 @@
 -- Themes define colours, icons, and wallpapers
 beautiful.init("/usr/share/awesome/themes/zenburn/theme.lua")
-theme.border_width  = "2"
-theme.border_normal = "#3F3F3F"
-theme.border_focus  = "lightgreen"
-theme.border_marked = "#CC9393"
+-- theme.border_width  = "2"
+-- theme.border_normal = "#3F3F3F"
+-- theme.border_focus  = "lightgreen"
+-- theme.border_marked = "#CC9393"
 
 -- This is used later as the default terminal and editor to run.
 terminal = "xfce4-terminal"
