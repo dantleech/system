@@ -9,6 +9,7 @@
       - "php5-sqlite"
       - "php5-mysql"
       - "php5-intl"
+      - "php5-mongo"
 
 - name: Install apache config
   sudo: True
@@ -31,6 +32,6 @@
   copy: src=php-xdebug dest=/usr/local/bin/php-xdebug mode=655
   notify: restart-apache
 
-- name: Clone webgrind
-  sudo: true
-  git: repo=https://github.com/jokkedk/webgrind.git update=no dest="/var/www/html/webgrind"
+#- name: Clone webgrind
+  #sudo: true
+  #git: repo=https://github.com/jokkedk/webgrind.git update=no dest="/var/www/html/webgrind"

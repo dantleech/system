@@ -7,3 +7,5 @@
 - include: screensaver.yml tags=screensaver
 - include: syncthing.yml tags=syncthing
 - include: screenshot.yml tags=screenshot
+- include: network-manager.yml tags=network-manager
+- include: xrandr.yml tags=xrandr

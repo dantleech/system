@@ -1,0 +1,4 @@
+- name: Install alternative DNS
+  sudo: True
+  copy: src="network-manager-dns" dest="/etc/NetworkManager/dispatcher.d/10-dns" mode=0111
+

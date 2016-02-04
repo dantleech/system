@@ -127,6 +127,10 @@ Plugin 'TsonJgoku/vim-phpunit-skelgen'
 " Cool status bar
 Plugin 'bling/vim-airline'
 
+" Gist
+Plugin 'mattn/webapi-vim'
+Plugin 'mattn/gist-vim'
+
 call vundle#end()
 
 " =============================== "

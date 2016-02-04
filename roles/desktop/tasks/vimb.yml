@@ -10,7 +10,7 @@
   file: state=directory path=~/.config/vimb
 
 - name: Clone vimb
-  git: repo=https://github.com/fanglingsu/vimb.git update=no dest="{{ user.home }}/www/fanglingsu/vimb"
+  git: repo=https://github.com/fanglingsu/vimb.git update=yes dest="{{ user.home }}/www/fanglingsu/vimb"
 
 - name: Make vimb
   sudo: True
