@@ -16,8 +16,8 @@ awful.rules.rules = {
       properties = { floating = true } },
 
     -- Always start firefox on a specific screen (for Selenium testing)
-    { rule = { class = "Iceweasel" },
-      properties = { tag = tags[1][4], maximized_horizontal = true, maximized_vertical = true } },
+    --{ rule = { class = "Iceweasel" },
+    --  properties = { tag = tags[1][4], maximized_horizontal = true, maximized_vertical = true } },
     -- Set Firefox to always map on tags number 2 of screen 1.
     -- { rule = { class = "Firefox" },
     --   properties = { tag = tags[1][2] } },

@@ -31,6 +31,7 @@ source:
         - { org: puli, repo: repository }
         - { org: phpcr, repo: phpcr }
         - { org: phpcr, repo: phpcr-benchmarks }
+        - { org: phpcr, repo: phpcr-migrations }
         - { org: phpcr, repo: phpcr-shell }
         - { org: phpcr, repo: phpcr-utils }
         - { org: phpcr, repo: phpcr-api-tests }
@@ -58,6 +59,7 @@ source:
         - { org: symfony-cmf, repo: symfony-cmf-website }
         - { org: symfony-cmf, repo: symfony-cmf-docs }
         - { org: webmozart, repo: console }
+        - { org: zendframework, repo: zend-servicemanager }
 
 hosts:
     - 
