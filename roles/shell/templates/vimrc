@@ -113,7 +113,7 @@ Plugin 'mudpile45/vim-phpdoc'
 Plugin 'henrik/vim-qargs'
 
 " PHPSpec integration
-Plugin 'Herzult/phpspec-vim.git'
+" Plugin 'Herzult/phpspec-vim.git'
 
 " Tern javascript thing
 Plugin 'marijnh/tern_for_vim'
@@ -130,6 +130,9 @@ Plugin 'bling/vim-airline'
 " Gist
 Plugin 'mattn/webapi-vim'
 Plugin 'mattn/gist-vim'
+
+" Refactoring
+Plugin 'adoy/vim-php-refactoring-toolbox'
 
 call vundle#end()
 

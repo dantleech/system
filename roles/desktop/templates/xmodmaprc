@@ -1,8 +1,8 @@
-remove mod5 = ISO_Level3_Shift
-remove mod4 = Super_L
-add mod4 = ISO_Level3_Shift
-add mod5 = Super_L
-
+!swap windows key and AltR -- doesn't work for I3
+!remove mod5 = ISO_Level3_Shift
+!remove mod4 = Super_L
+!add mod4 = ISO_Level3_Shift
+!add mod5 = Super_L
 
 clear Lock
 keycode 0x42 = Escape

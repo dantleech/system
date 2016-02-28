@@ -1,0 +1,19 @@
+- name: Install packages
+  sudo: True
+  apt: pkg={{ item }} state=present
+  with_items:
+      - "i3"
+
+- name: Create i3 directories
+  file: path="{{ user.home }}/.config/{{ item }}" state=directory
+  with_items:
+    - "i3"
+    - "i3status"
+
+- name: Copy i3 config
+  sudo: true
+  copy: src=i3config dest="{{ user.xdgconfig }}/i3/config"
+
+- name: Copy i3 status config
+  sudo: true
+  copy: src=i3status dest="{{ user.xdgconfig }}/i3status/config"
