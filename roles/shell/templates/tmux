@@ -5,7 +5,9 @@ bind-key C-a last-window
 # Start numbering at 1
 set -g base-index 1
 
-# set -g default-terminal "screen-256color"
+# for neovim
+set -g default-terminal "screen-256color"
+
 # Allows for faster key repetition
 set -s escape-time 0
 

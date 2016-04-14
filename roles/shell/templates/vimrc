@@ -134,6 +134,10 @@ Plugin 'mattn/gist-vim'
 " Refactoring
 Plugin 'adoy/vim-php-refactoring-toolbox'
 
+" Git gutter
+Plugin 'airblade/vim-gitgutter'
+
+
 call vundle#end()
 
 " =============================== "

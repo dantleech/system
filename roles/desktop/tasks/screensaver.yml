@@ -9,4 +9,4 @@
       - "xscreensaver-gl-extra"
 
 - name: Install screensaver config
-  copy: src="xscreensaver" dest="{{ user.xdgconfig }}/.xscreensaver"
+  copy: src="xscreensaver" dest="{{ user.home }}/.xscreensaver"

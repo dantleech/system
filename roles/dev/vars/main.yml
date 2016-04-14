@@ -6,6 +6,8 @@ source:
         - { org: dantleech, repo: system }
         - { org: dantleech, repo: dtlweb }
         - { org: dantleech, repo: Trainer }
+        - { org: dantleech, repo: skeletor }
+        - { org: dantleech, repo: sf-http-cache-tagging }
         - { org: phpbench, repo: phpbench }
         - { org: phpbench, repo: cellular }
         - { org: phpbench, repo: tabular }
@@ -56,6 +58,7 @@ source:
         - { org: symfony-cmf, repo: RoutingAutoBundle }
         - { org: symfony-cmf, repo: MenuBundle }
         - { org: symfony-cmf, repo: Testing }
+        - { org: symfony-cmf, repo: slugifier-api }
         - { org: symfony-cmf, repo: symfony-cmf-website }
         - { org: symfony-cmf, repo: symfony-cmf-docs }
         - { org: webmozart, repo: console }
