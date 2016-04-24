@@ -1,0 +1,5 @@
+# See http://www.commandlinefu.com/commands/view/7535/look-up-a-unicode-character-by-name
+- name: Install script
+  sudo: true
+  copy: src=weather dest=/usr/local/bin/weather mode=0755
+

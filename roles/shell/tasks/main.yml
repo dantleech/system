@@ -15,4 +15,5 @@
 - include: zsh.yml tags=zsh
 - include: fzf.yml tags=fzf
 - include: ugrep.yml tags=ugrep
+- include: weather.yml tags=weather
 # - include: gomtpfs.yml tags=gomtpfs
