@@ -7,3 +7,7 @@
   cron: name="offline imap" minute=*/2
         user="daniel" job="/usr/bin/offlineimap > /var/log/offlineimap"
         cron_file=ansible_offlineimap
+
+- name: Install postsync hook
+  sudo: True
+  template: src=offlineimap-postsync dest="/usr/local/bin/offlineimap-postsync" mode=0655

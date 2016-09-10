@@ -33,8 +33,9 @@ user:
             autojoin:
                 - symfony-cmf
                 - symfony
-                - sulu-cmf
-                - behat
+                - sylius
+                - boltcms
+                - hoaproject
      
     mutt:
         aliases: ~/ownCloud/System/mutt/aliases

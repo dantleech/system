@@ -16,4 +16,5 @@
 - include: fzf.yml tags=fzf
 - include: ugrep.yml tags=ugrep
 - include: weather.yml tags=weather
+- include: environment.yml tags=environment
 # - include: gomtpfs.yml tags=gomtpfs

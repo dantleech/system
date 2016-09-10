@@ -3,6 +3,7 @@
 
 [general]
 accounts = {{ user.mail.accounts.keys()|join(',') }}
+postsynchook = /usr/local/bin/offlineimap-postsync
 
 {% for accountName, account in user.mail.accounts.iteritems() %}
 

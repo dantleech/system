@@ -47,6 +47,7 @@ source:
         - { org: sulu-io, repo: sulu-docs }
         - { org: sulu-io, repo: sulu-standard }
         - { org: sulu-io, repo: sulu-document-manager }
+        - { org: sylius, repo: sylius }
         - { org: symfony, repo: symfony }
         - { org: symfony, repo: symfony-docs }
         - { org: symfony-cmf, repo: Resource }
@@ -61,6 +62,7 @@ source:
         - { org: symfony-cmf, repo: slugifier-api }
         - { org: symfony-cmf, repo: symfony-cmf-website }
         - { org: symfony-cmf, repo: symfony-cmf-docs }
+        - { org: symfony-cmf, repo: cmf-sandbox }
         - { org: webmozart, repo: console }
         - { org: zendframework, repo: zend-servicemanager }
 

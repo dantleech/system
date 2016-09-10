@@ -1,0 +1,8 @@
+- name: Create directory
+  file: path={{ user.home}}/.dbus/Xdbus state=touch mode=0644
+
+- name: Copy DBUS hack
+  sudo: true
+  copy: src=dbus_bootstrap dest="/usr/local/bin/dbus_startup_hack" mode=0755
+
+

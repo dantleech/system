@@ -10,3 +10,4 @@
 - include: network-manager.yml tags=network-manager
 - include: xrandr.yml tags=xrandr
 - include: i3.yml tags=i3
+- include: dbushack.yml tags=dbushack

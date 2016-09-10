@@ -273,6 +273,11 @@ class ${1:`!v expand("%:t:r")`}
 }
 endsnippet
 
+snippet namespace "Namespace" !b
+namespace ${1:`!v PhpNamespaceGet()`};
+endsnippet
+
+
 snippet mahead "MassiveArt header"
 /*
  * This file is part of the Sulu CMS.
@@ -283,6 +288,10 @@ snippet mahead "MassiveArt header"
  * with this source code in the file LICENSE.
  */
  $0
+endsnippet
+
+snippet dec "Strict Types"
+declare(strict_types=1);
 endsnippet
 
 snippet cmfhead "CMF header"

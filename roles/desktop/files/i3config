@@ -124,6 +124,9 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
+# screenshot to clipboard script
+bindsym $mod+Shift+s exec "scrotclip"
+
 # launch browser
 bindsym $mod+b exec "vimb"
 
@@ -169,9 +172,10 @@ bar {
         position top
 }
 
-assign [class="Vimb"] 2
+#assign [class="Vimb"] 2
 assign [class="Turpial"] 8
 
+exec --no-startup-id /usr/local/bin/dbus_startup_hack
 exec --no-startup-id feh --bg-fill --auto-zoom --recursive --randomize --geometry 1366x768 ~/Pictures/Background
 exec --no-startup-id xscreensaver -no-splash
 exec_always sleep 1 && xmodmap ~/.xmodmaprc

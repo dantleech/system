@@ -1,5 +1,5 @@
 name: notes
-root: ~/ownCloud
+root: ~/documents
 
 windows:
   - vim: vim .

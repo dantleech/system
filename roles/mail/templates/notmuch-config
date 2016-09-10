@@ -1,0 +1,23 @@
+# .notmuch-config - Configuration file for the notmuch mail system
+#
+# For more information about notmuch, see http://notmuchmail.org
+
+[database]
+path = {{ user.mail.basedir }}
+
+[user]
+name={{ user.fullname }}
+primary_email={{ user.email }}
+
+[new]
+tags=unread;inbox;
+ignore=
+
+[search]
+exclude_tags=deleted;spam;
+
+[maildir]
+synchronize_flags=true
+
+[crypto]
+gpg_path=gpg

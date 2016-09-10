@@ -286,7 +286,7 @@ alias wmaker WindowMaker Mailing List <wmaker@eosys.com>
 #	mailboxes <path1> [ <path2> ... ]
 #
 
-{% for box in user.mail.boxes %}
+{% for tag, box in user.mail.boxes.iteritems() %}
 mailboxes {{ user.home }}/Mail/{{ box }}
 {% endfor %}
 

@@ -3,6 +3,7 @@
   apt: pkg={{ item }} state=present
   with_items:
       - "i3"
+      - "notify-osd"
 
 - name: Create i3 directories
   file: path="{{ user.home }}/.config/{{ item }}" state=directory

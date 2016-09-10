@@ -20,3 +20,5 @@ set webinspector=on
 
 nnoremap H <C-O>
 nnoremap L <C-I>
+
+set proxy=true

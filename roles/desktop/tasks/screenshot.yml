@@ -7,4 +7,3 @@
 - name: Install capture script
   sudo: True
   copy: src="scrotclip" dest="/usr/local/bin/scrotclip" mode=755
-

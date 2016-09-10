@@ -2,6 +2,6 @@
 
 # Script to take a screenshot and copy it to the x clipboard
 
-FILE=`scrot --select -e 'mv $f /tmp/ && echo $f'`
+FILE=`scrot -u -e 'mv $f /tmp/ && echo $f'`
 xclip -selection clipboard -t image/png < /tmp/$FILE
-notify-send "Screenshot copied to clipboard"
+notify-send "Screenshot copied to clipboard" -t 1000

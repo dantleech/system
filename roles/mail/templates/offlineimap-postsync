@@ -1,0 +1,6 @@
+#!/bin/bash
+notmuch new
+
+{% for tag, box in user.mail.boxes.iteritems() %}
+    notmuch tag -inbox +{{ tag }} -- folder:{{ box }} tag:new
+{% endfor %}

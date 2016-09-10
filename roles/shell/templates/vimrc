@@ -13,11 +13,11 @@ call vundle#begin()
 " ======== Vundle Config ======== "
 
 " Disabled but interesting ...
-" Plugin 'Shougo/neocomplete' - this plugin cripples vim after a day or so
+" Plugin 'Shougo/neocomplete' " - this plugin cripples vim after a day or so
 "Plugin 'Shougo/neosnippet'
 Plugin 'Shougo/unite.vim'
 "Plugin 'tsukkee/unite-tag'
-"Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-surround'
 
 " Utility bundles
 Plugin 'L9'
@@ -26,7 +26,7 @@ Plugin 'Shougo/vimproc.vim'
 Plugin 'chase/vim-ansible-yaml'
 
 " Preview images in ASCII
-Plugin 'ashisha/image.vim'
+" Plugin 'ashisha/image.vim' # doesn't work currently with Vim 8 (no python support?)
 
 " Aligning
 Plugin 'godlygeek/tabular'
@@ -137,6 +137,14 @@ Plugin 'adoy/vim-php-refactoring-toolbox'
 " Git gutter
 Plugin 'airblade/vim-gitgutter'
 
+" Argument wrapping and unwrapping
+Plugin 'FooSoft/vim-argwrap'
+
+" Search highlighting
+Plugin 'timakro/vim-searchant'
+
+" Real autocompletion, almost but not quite.. not finished. Doesn't work
+" Plugin 'mkusher/padawan.vim'
 
 call vundle#end()
 
@@ -160,6 +168,7 @@ set smarttab
 set autowrite
 
 " show lines numbers
+set relativenumber
 set number
 
 " enable real-time searching
@@ -168,6 +177,9 @@ set incsearch
 " highlight search matches
 set hlsearch
 
+let $PATH=$PATH . ':' . expand('~/.composer/vendor/bin')
+let g:padawan#composer_command = "composer"
+
 " set syntax highlighting options.
 syntax on
 let c_space_errors = 1
@@ -175,6 +187,10 @@ let php_sql_query = 1
 let php_sync_method = 0
 let php_folding=0
 let g:DisableAutoPHPFolding = 1
+
+" NERDTree config
+let NERDTreeCascadeOpenSingleChildDir=0
+let NERDTreeCascadeSingleChildDir=0
 
 " Nerdtree: Close NERDTree if it is the last open buffer
 autocmd WinEnter * call s:CloseIfOnlyNerdTreeLeft()
@@ -239,8 +255,6 @@ let g:phpspec_run_cmd_options = '--verbose -fpretty'
 " Only get tags from CWD
 set tags=tags;
 set tags+=/usr/share/php/PHPUnit/tags
-let g:phpcomplete_parse_docblock_comments = 1
-let g:phpcomplete_complete_for_unknown_classes = 0
 
 " PHP Compoete extended
 let g:phpcomplete_index_composer_command="composer"
@@ -258,7 +272,7 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 let g:php_cs_fixer_path = "/usr/local/bin/phpcsfixer"
 
 " UltiSnips
-let g:UltiSnipsSnippetsDir="{{ vim.snippets_dir }}"
+let g:UltiSnipsSnippetsDir="/home/daniel/.vim/UltiSnips/"
 let g:UltiSnipsExpandTrigger="<c-c>"
 
 " ======================== "
@@ -312,7 +326,7 @@ color twilight256
 " let g:molokai_original = 1
 
 " PDV config
-let g:pdv_template_dir = "{{ vim.pdv_template_dir }}"
+let g:pdv_template_dir = "/home/daniel/.vim/pdv_templates_snip"
 
 " Enable powerline fonts
 let g:airline_powerline_fonts = 1
@@ -389,6 +403,8 @@ nnoremap <silent><leader>pp :call PhpunitRun()<CR>
 
 " Insert the current namespace
 nnoremap <silent><leader>nn :call PhpNamespaceInsert()<CR>
+
+nnoremap <silent> <leader>aw :ArgWrap<CR>
 
 " neocomplete
 " inoremap <expr><C-g>     neocomplete#undo_completion()

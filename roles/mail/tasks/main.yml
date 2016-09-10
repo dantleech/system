@@ -18,5 +18,6 @@
       - mailcap
 
 - include: mailnotifydaemon.yml
-- include: mutt.yml
-- include: offlineimap.yml
+- include: mutt.yml tags=mutt
+- include: offlineimap.yml tags=offlineimap
+- include: alot.yml tags=alot
