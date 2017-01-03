@@ -128,7 +128,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 bindsym $mod+Shift+s exec "scrotclip"
 
 # launch browser
-bindsym $mod+b exec "vimb"
+bindsym $mod+b exec "surf"
 
 # move the whole workspace to the next output
 bindsym $mod+x move workspace to output right
