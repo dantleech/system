@@ -357,10 +357,9 @@ nnoremap <silent><leader>dd :call pdv#DocumentWithSnip()<CR>
 nnoremap <C-w><C-o> <C-w><C-w>
 nnoremap <C-w>o <C-w><C-w>
 
-" Replace doc with {@inheritDoc}
-nnoremap <silent><leader>id /public.*;<CR>kkV/\/\*\*<CR>NjdkA<CR>{@inheritDoc}<ESC>jjj"<CR>
-" Replace doc with {@inheritDoc} and implement abstract method
-nnoremap <silent><leader>ii /public.*;<CR>kkV/\/\*\*<CR>NjdkA<CR>{@inheritDoc}<ESC>jj$xo{<ESC>A<CR>}<ESC>
+" Generate missing method
+nnoremap <silent><leader>mm :call phpactor#generate_snippet("implement_missing_methods")<CR>
+nnoremap <silent><leader>mp :call phpactor#generate_snippet("implement_missing_properties")<CR>
 
 " Generate PHPUnit test cases
 nnoremap <silent><leader>pt :call PhpunitGenerate()<CR>
