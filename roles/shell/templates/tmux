@@ -2,6 +2,7 @@
 set-option -g prefix C-a
 bind-key C-a last-window
 
+set-option -g default-shell /bin/zsh
 # Start numbering at 1
 set -g base-index 1
 

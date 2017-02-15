@@ -128,7 +128,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 bindsym $mod+Shift+s exec "scrotclip"
 
 # launch browser
-bindsym $mod+b exec "surf"
+bindsym $mod+b exec "vimb"
 
 # move the whole workspace to the next output
 bindsym $mod+x move workspace to output right
@@ -178,4 +178,4 @@ assign [class="Turpial"] 8
 exec --no-startup-id /usr/local/bin/dbus_startup_hack
 exec --no-startup-id feh --bg-fill --auto-zoom --recursive --randomize --geometry 1366x768 ~/Pictures/Background
 exec --no-startup-id xscreensaver -no-splash
-exec_always sleep 1 && xmodmap ~/.xmodmaprc
+exec /usr/bin/setxkbmap -option "caps:swapescape"

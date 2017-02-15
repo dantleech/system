@@ -1,2 +1,1 @@
 #!/bin/bash
-env http_proxy="http://localhost:8118" vimb

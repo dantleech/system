@@ -1,6 +1,6 @@
 - name: Install packages
-  sudo: True
   apt: pkg={{ item }} state=present
+  sudo: true
   with_items:
       - "i3"
       - "notify-osd"

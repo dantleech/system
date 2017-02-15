@@ -1,4 +1,4 @@
-- hosts: raspberry
+- hosts: local
   gather_facts: False
   roles:
       - { role: shell, tags: [shell] }
