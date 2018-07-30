@@ -1,5 +1,0 @@
-name: mail
-root: ~/mail
-
-windows:
-  - mutt: mutt

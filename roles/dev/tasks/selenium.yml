@@ -1,6 +1,0 @@
-# vim:ft=ansible:
-- name: Directory
-  file: path="{{ user.home }}/jars" state=directory
-
-- name: Selenium
-  get_url: url="http://selenium-release.storage.googleapis.com/2.45/selenium-server-standalone-2.45.0.jar" dest="{{ user.home }}/jars/selenium.jar"

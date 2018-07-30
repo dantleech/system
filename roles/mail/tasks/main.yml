@@ -1,8 +1,8 @@
 - name: Install packages
-  sudo: True
+  become: True
   apt: pkg={{ item }} state=present
   with_items:
-      - "mutt-patched"
+      - "neomutt"
       - "offlineimap"
       - "msmtp"
       - "inotify-tools"
@@ -12,12 +12,8 @@
 - name: Copy dotfiles
   template: src={{ item }} dest="{{ user.home }}/.{{ item }}" mode=0600
   with_items:
-      - msmtprc
-      - offlineimaprc
-      - muttrc
       - mailcap
 
-- include: mailnotifydaemon.yml
+- include: mailcheck.yml
 - include: mutt.yml tags=mutt
-- include: offlineimap.yml tags=offlineimap
-- include: alot.yml tags=alot
+#- include: offlineimap.yml tags=offlineimap

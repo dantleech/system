@@ -1,0 +1,9 @@
+- name: Install packages
+  become: True
+  apt: pkg={{ item }} state=present
+  with_items:
+      - "libnotify-bin"
+
+- name: Install checker
+  become: True
+  template: src=mailcheck.sh dest="/usr/local/bin/mailcheck" mode=0700 owner={{ user.name }}

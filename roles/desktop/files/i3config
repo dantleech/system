@@ -136,7 +136,7 @@ bindsym $mod+x move workspace to output right
 # volume controls
 bindsym XF86AudioRaiseVolume exec amixer -c0 -q set Master 2dB+ unmute
 bindsym XF86AudioLowerVolume exec amixer -c0 -q set Master 2dB- unmute
-bindsym XF86AudioMute exec amixer -q set Master toggle
+bindsym XF86AudioMute exec "amixer -q set Speaker toggle && amixer -q set Headphone toggle && amixer -q set Master toggle"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -163,12 +163,13 @@ mode "resize" {
 }
 
 bindsym $mod+Shift-r mode "resize"
+bindsym $mod+Shift-b border toggle
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
         status_command i3status
-        tray_output LVDS1
+        tray_output eDP-1
         position top
 }
 
@@ -178,4 +179,6 @@ assign [class="Turpial"] 8
 exec --no-startup-id /usr/local/bin/dbus_startup_hack
 exec --no-startup-id feh --bg-fill --auto-zoom --recursive --randomize --geometry 1366x768 ~/Pictures/Background
 exec --no-startup-id xscreensaver -no-splash
-exec /usr/bin/setxkbmap -option "caps:swapescape"
+exec_always sleep 1 && xmodmap ~/.xmodmaprc
+exec setxkbmap -option ctrl:nocaps
+exec xcape -e 'Control_L=Escape' -t0

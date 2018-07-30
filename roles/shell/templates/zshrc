@@ -10,20 +10,20 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-export EDITOR=vim
-export VISUAL=vim
-export PATH=~/.config/composer/vendor/bin:$PATH
+export EDITOR=nvim
+export VISUAL=nvim
+export PATH=~/.config/composer/vendor/bin:~/bin:$PATH
+export GOPATH=~/.gocode
 
 zstyle ':prezto:module:git:status:ignore' submodules 'all'
 zstyle ':prezto:module:git:info:context:subcontext' format 'string'
 
 alias dt=dict
-unalias cp 
-unalias mv
 alias tmuxa="tmux 2at -t"
 alias tmuxn="tmux new -s"
 alias tmux="tmux -2"
 alias mux="env TERM=xterm-256color mux"
+alias vim=nvim
 
 # use vim key bindings
 bindkey -v
@@ -32,3 +32,14 @@ bindkey -v
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 bindkey '^P' history-substring-search-up
 bindkey '^N' history-substring-search-down
+autoload edit-command-line
+zle -N edit-command-line
+bindkey -M vicmd v edit-command-line
+set +o noclobber
+
+fbr() {
+    local branches branch
+    branches=$(git branch -a) &&
+    branch=$(echo "$branches" | fzf +s +m -e) &&
+    git checkout $(echo "$branch" | sed "s:.* remotes/origin/::" | sed "s:.* ::")
+}

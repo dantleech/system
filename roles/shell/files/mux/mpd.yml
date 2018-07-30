@@ -1,8 +1,0 @@
-name: mpd
-root: ~/music
-
-windows:
-  - ncmpcpp: ncmpcpp
-  - mpd: mpc
-
-pre: mpd

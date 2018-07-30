@@ -1,7 +1,2 @@
 - name: Copy Mutt RC file
   template: src=muttrc dest="/home/{{ user.name }}/.muttrc" mode=0600
-
-- name: Copy other Mutt config
-  template: src={{ item }} dest="{{ user.home }}/.mutt/{{ item }}" mode=0600
-  with_items:
-      - mutt_sidebar

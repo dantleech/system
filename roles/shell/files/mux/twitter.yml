@@ -1,6 +1,0 @@
-name: twitter
-root: ~/www/dantleech/snottwitterd
-
-windows:
-  - turses: turses
-  - snottwitterd: php snottwitterd.php

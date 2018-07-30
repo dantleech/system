@@ -1,7 +1,0 @@
-!#/usr/bin/env bash
-# OpenNIC IPv4 nameservers (US)
-# echo "nameserver 208.67.222.222" > /etc/resolv.conf
-# echo "nameserver 208.67.220.220" >> /etc/resolv.conf
-echo "nameserver 193.183.98.154" > /etc/resolv.conf
-echo "nameserver 5.9.49.12" >> /etc/resolv.conf
-

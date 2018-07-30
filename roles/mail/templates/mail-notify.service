@@ -1,9 +1,0 @@
-[Unit]
-Description=Mail Notification Daemon
-
-[Service]
-Forked=yes
-ExecStart=/usr/local/bin/mail-notify-daemon
-
-[Install]
-WantedBy=default.target

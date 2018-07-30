@@ -1,4 +1,0 @@
-- name: Add global env variables
-  copy: src=environment dest=/etc/environment
-  sudo: true
-

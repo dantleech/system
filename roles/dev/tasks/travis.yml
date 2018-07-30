@@ -1,7 +1,0 @@
-- name: Install travis CLI
-  sudo: True
-  gem: name=travis
-
-- name: Create monitor script
-  sudo: True
-  template: src=travis_monitor.sh dest=/usr/local/bin/travismon mode=0755

@@ -1,37 +1,11 @@
 - name: Install packages
-  sudo: True
+  become: True
   apt: pkg={{ item }} state=present
   with_items:
-      - "php5"
-      - "php5-xdebug"
-      - "php5-gd"
-      - "php5-readline"
-      - "php5-sqlite"
-      - "php5-mysql"
-      - "php5-intl"
-      - "php5-mongo"
-
-- name: Install apache config
-  sudo: True
-  template: src=php.ini dest=/etc/php5/apache2/php.ini mode=0644
-  notify: restart-apache
-
-- name: Install cli config
-  sudo: True
-  template: src=php.ini dest=/etc/php5/cli/php.ini mode=0644
-
-- name: Install Xdebug config
-  sudo: True
-  template: src=php_xdebug.ini dest="{{ item }}"
-  with_items:
-      - "/etc/php5/apache2/conf.d/20-xdebug.ini"
-      - "/etc/php5/cli/conf.d/20-xdebug.ini"
-
-- name: Install php-xdebug script
-  sudo: True
-  copy: src=php-xdebug dest=/usr/local/bin/php-xdebug mode=655
-  notify: restart-apache
-
-#- name: Clone webgrind
-  #sudo: true
-  #git: repo=https://github.com/jokkedk/webgrind.git update=no dest="/var/www/html/webgrind"
+      - "php7.2"
+      - "php7.2-xdebug"
+      - "php7.2-gd"
+      - "php7.2-readline"
+      - "php7.2-sqlite3"
+      - "php7.2-intl"
+      - "php7.2-mbstring"

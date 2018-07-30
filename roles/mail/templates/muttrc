@@ -1,8 +1,9 @@
+
 # Header caching is a fine addition to any mutt.
 set header_cache=~/.mutt/hcache/
 
-set from="{{ user.email }}"
-set realname="{{ user.fullname }}"
+set from={{ user.email }}
+set realname={{ user.fullname }}
 
 # But body caching doesn't make so much sense with local mail.
 # The X-Label header changing dynamically also messes with this, so disable it.
@@ -33,7 +34,7 @@ set noconfirmappend		# don't ask me if i want to append to mailboxes
 set copy=yes			# always save a copy of outgoing messages
 set delete=yes			# purge deleted messages without asking
 set edit_headers		# let me edit the message header when composing
-set editor="vim"		# editor to use when composing messages
+set editor="{{ user.editor }}"		# editor to use when composing messages
 #set bounce=yes			# don't ask about bouncing messages, just do it
 #set fast_reply			# skip initial prompts when replying
 #set fcc_attach			# keep attachments in copies of sent messages?
@@ -131,23 +132,23 @@ set write_inc=25		# show progress while writing mailboxes
 #
 
 #color normal white default
-color hdrdefault red default
-color quoted brightblue default
-color signature red default
-color indicator brightyellow red
-color error brightred default
-color status yellow blue
-color tree magenta default	# the thread tree in the index menu
-color tilde magenta default
-color message brightcyan default
-color markers brightcyan default
-color attachment brightmagenta default
-color search default green	# how to hilite search patterns in the pager
-
-color header brightred default ^(From|Subject):
-color body magenta default "(ftp|http|https)://[^ ]+"	# point out URLs
-color body magenta default [-a-z_0-9.]+@[-a-z_0-9.]+	# e-mail addresses
-color underline brightgreen default
+#color hdrdefault red default
+#color quoted brightblue default
+#color signature red default
+#color indicator brightyellow red
+#color error brightred default
+#color status yellow blue
+#color tree magenta default	# the thread tree in the index menu
+#color tilde magenta default
+#color message brightcyan default
+#color markers brightcyan default
+#color attachment brightmagenta default
+#color search default green	# how to hilite search patterns in the pager
+#
+#color header brightred default ^(From|Subject):
+#color body magenta default "(ftp|http|https)://[^ ]+"	# point out URLs
+#color body magenta default [-a-z_0-9.]+@[-a-z_0-9.]+	# e-mail addresses
+#color underline brightgreen default
 
 # attributes when using a mono terminal
 #mono header underline ^(From|Subject):
@@ -187,7 +188,6 @@ macro pager S "<save-message>+spam<Enter>"
 #macro index "\""	"<enter-command> set realname=\"real hairy macro\" ?realname<Enter>" # and a comment to boot!
 #macro index f1	"<enter-command>woohoo!"
 
-bind pager ":1" top
 bind pager G bottom	# just like vi and less
 #macro   pager   \Ck     "<pipe-message> pgp -kaf<Enter>"   # a comment is valid here
 #macro pager X "<pipe-message> morepgp<Enter>"	# pipe PGP message to a script
@@ -249,44 +249,12 @@ save-hook ^judge +diplomacy
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #
-# Change settings based on mailbox
-#
-#	folder-hook [!]<pattern> <command>
-#
-# <command> is executed when opening a mailbox matching <pattern>
-
-#folder-hook .		'set sort=date-sent'
-#folder-hook mutt	'set index_format="%4C %Z %02m/%02N %-20.20F (%4l) %s"'
-#folder-hook =mutt	my_hdr Revolution: \#9 # real comment
-
-#folder-hook .		'set reply_regexp="^re:[ \t]*"'
-
-# this mailing list prepends "[WM]" to all non reply subjects, so set
-# $reply_regexp to ignore it
-# Warning: May break threads for other people.
-#folder-hook +wmaker	'set reply_regexp="^(re:[ \t]*)?\[WM\][ \t]*"'
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-#
-# Aliases
-#
-#	alias <name> <address> [ , <address> ... ]
-
-#alias exam "\# to annoy michael" <user@host>
-#alias me Michael Elkins <me@mutt.org> # me!
-alias mutt-dev Mutt Development List <mutt-dev@mutt.org> # power users
-alias mutt-users Mutt User List <mutt-users@mutt.org>
-alias mutt-announce Mutt Announcement List <mutt-announce@mutt.org>
-alias wmaker WindowMaker Mailing List <wmaker@eosys.com>
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-#
 # Mailboxes to watch for new mail
 #
 #	mailboxes <path1> [ <path2> ... ]
 #
 
-{% for tag, box in user.mail.boxes.iteritems() %}
+{% for box in user.mail.boxes %}
 mailboxes {{ user.home }}/Mail/{{ box }}
 {% endfor %}
 
@@ -339,4 +307,11 @@ auto_view application/x-gzip
 #
 
 # source ~/.muttrc-local	# config commands local to this site
-source "{{ user.home }}/.mutt/mutt_sidebar"
+#
+set sidebar_visible
+set sidebar_format = "%B%?F? [%F]?%* %?N?%N/?%S"
+set mail_check_stats
+
+bind index,pager \Cp sidebar-prev
+bind index,pager \Cn sidebar-next
+bind index,pager \Co sidebar-open

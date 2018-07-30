@@ -1,8 +1,8 @@
 # See http://www.commandlinefu.com/commands/view/7535/look-up-a-unicode-character-by-name
 - name: Install Perl Unicode string module
-  sudo: true
+  become: true
   apt: pkg=libunicode-string-perl state=installed
 
 - name: Install script
-  sudo: true
+  become: true
   copy: src=ugrep dest=/usr/local/bin/ugrep mode=0755

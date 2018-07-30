@@ -1,10 +1,9 @@
 - name: Install packages
-  sudo: True
+  become: True
   apt: pkg={{ item }} state=present
   with_items:
-      - "libsoup2.4-dev"
-      - "libwebkitgtk-dev"
-      - "libgtk2.0-dev"
+      - "libwebkitgtk-3.0-dev"
+      - "libgtk-3-dev"
 
 - name: Create directory
   file: state=directory path=~/.config/vimb
@@ -13,17 +12,13 @@
   git: repo=https://github.com/fanglingsu/vimb.git update=yes dest="{{ user.home }}/www/fanglingsu/vimb"
 
 - name: Make vimb
-  sudo: True
+  become: True
   command: creates=/usr/local/bin/vimb chdir="{{ user.home }}/www/fanglingsu/vimb" make install
 
 - name: Copy config
   template: src=vimb_config dest="{{ user.home }}/.config/vimb/config"
 
-- name: Install vimb wrapper
-  sudo: True
-  copy: src=vimbp dest=/usr/local/bin/vimbp mode=755
-
 - name: Add desktop entry
-  sudo: True
+  become: True
   template: src=vimb_desktop dest=/usr/share/applications/vimb.desktop
   notify: update-desktop-database

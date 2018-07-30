@@ -1,13 +1,13 @@
 - name: Create log file
-  sudo: True
+  become: True
   file: path=/var/log/offlineimap state=file owner=daniel group=adm
 
 - name: Offlimeimap cron
-  sudo: True
+  become: True
   cron: name="offline imap" minute=*/2
         user="daniel" job="/usr/bin/offlineimap > /var/log/offlineimap"
         cron_file=ansible_offlineimap
 
 - name: Install postsync hook
-  sudo: True
+  become: True
   template: src=offlineimap-postsync dest="/usr/local/bin/offlineimap-postsync" mode=0655

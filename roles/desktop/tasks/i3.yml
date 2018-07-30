@@ -1,6 +1,6 @@
 - name: Install packages
   apt: pkg={{ item }} state=present
-  sudo: true
+  become: true
   with_items:
       - "i3"
       - "notify-osd"
@@ -9,12 +9,7 @@
   file: path="{{ user.home }}/.config/{{ item }}" state=directory
   with_items:
     - "i3"
-    - "i3status"
 
 - name: Copy i3 config
-  sudo: true
+  become: true
   copy: src=i3config dest="{{ user.xdgconfig }}/i3/config"
-
-- name: Copy i3 status config
-  sudo: true
-  copy: src=i3status dest="{{ user.xdgconfig }}/i3status/config"

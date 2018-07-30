@@ -1,8 +1,7 @@
 - name: Install packages
-  sudo: True
+  become: True
   apt: pkg={{ item }} state=present
   with_items:
-      - "ctags"
       - "git"
       - "dict-gcide" # offline dictionary
       - "aiksaurus"  # thesaurus
@@ -10,7 +9,6 @@
 - name: Dotfiles
   template: src={{ item }} dest="{{ user.home }}/.{{ item }}"
   with_items:
-      - ctags
       - gitignoreglobal
 
 - name: Set git global ignore

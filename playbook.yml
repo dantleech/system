@@ -1,20 +1,20 @@
+---
 - hosts: local
-  gather_facts: False
+  gather_facts: false
   roles:
-      - { role: shell, tags: [shell] }
-      - { role: dev, tags: [dev] }
-      - { role: mail, tags: [mail] }
-      - { role: desktop, tags: [desktop] }
+      - {role: shell, tags: [shell]}
+      - {role: desktop, tags: [desktop]}
+      - {role: dev, tags: [dev]}
+      - {role: mail, tags: [mail]}
   handlers:
       - include: roles/desktop/handlers/main.yml
-
   vars_files:
       - "vars/main.yml"
       - "vars/secure.yml"
 
 - hosts: remote
-  gather_facts: False
+  gather_facts: false
   roles:
-      - { role: shell, tags: [shell] }
+      - {role: shell, tags: [shell]}
   vars_files:
       - "vars/main.yml"

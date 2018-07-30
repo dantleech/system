@@ -1,6 +1,0 @@
-name: jackrabbit
-root: ~/jars/jackrabbit
-
-windows:
-  - jackrabbit: java -jar ../jackrabbit.jar
-  - phpcrsh: phpcrsh -pjackrabbit

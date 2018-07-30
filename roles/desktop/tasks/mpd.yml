@@ -1,5 +1,5 @@
 - name: Install packages
-  sudo: True
+  become: True
   apt: pkg={{ item }} state=present
   with_items:
       - "mpd"
@@ -7,7 +7,7 @@
       - "alsa-utils"
 
 - name: Copy mpd config
-  sudo: true
+  become: true
   template: src=mpd.conf dest="{{ user.home }}/.mpdconf"
 
 - name: Create mpd directories

@@ -1,6 +1,0 @@
-- name: Xrandr scripts to change external monitor config
-  sudo: True
-  copy: src={{ item }}.sh dest=/usr/local/bin/{{ item }} mode=755
-  with_items:
-      - "xrandrvga"
-      - "xrandrhdmi"

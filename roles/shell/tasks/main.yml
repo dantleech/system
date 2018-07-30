@@ -1,20 +1,12 @@
 - name: Install packages
-  sudo: True
+  become: True
   apt: pkg={{ item }} state=present
   with_items:
-      - "fonts-powerline" # for vim status bar
       - "ntp"
-
-- name: Assert directories exist
-  file: path="{{ user.xdgconfig }}/systemd/user" state=directory
 
 - include: misc.yml tags=misc
 - include: tmux.yml tags=tmux
-- include: tmuxinator.yml tags=tmux
-- include: vim.yml tags=vim
 - include: zsh.yml tags=zsh
 - include: fzf.yml tags=fzf
 - include: ugrep.yml tags=ugrep
 - include: weather.yml tags=weather
-- include: environment.yml tags=environment
-# - include: gomtpfs.yml tags=gomtpfs
