@@ -10,6 +10,8 @@ shortcut-add pirate=https://oldpiratebay.org/search?q=$0&sort=seeders
 
 set editor-command=gvim -f %s
 set webinspector=on
+set download-path="~/Downloads"
 
 nnoremap H <C-O>
 nnoremap L <C-I>
+

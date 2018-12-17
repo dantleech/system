@@ -1,0 +1,13 @@
+- name: Clone Repo
+  git: repo=https://github.com/matze/mtheme.git update=yes dest="{{ user.home }}/www/matze/mtheme"
+
+- name: Create directory
+  file: state=directory path=~/texmf/tex/latex/local
+
+- name: Make
+  command: chdir="{{ user.home }}/www/matze/mtheme" make sty
+
+- name: Copy files
+  copy: remote_src=True src="{{ item }}" dest=~/texmf/tex/latex/local/
+  with_fileglob:
+      - "{{ user.home }}/www/matze/mtheme/*.sty"

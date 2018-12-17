@@ -6,6 +6,7 @@
       - {role: desktop, tags: [desktop]}
       - {role: dev, tags: [dev]}
       - {role: mail, tags: [mail]}
+      - {role: latex, tags: [latex]}
   handlers:
       - include: roles/desktop/handlers/main.yml
   vars_files:

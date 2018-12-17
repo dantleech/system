@@ -4,9 +4,15 @@
   with_items:
       - "ntp"
 
-- include: misc.yml tags=misc
-- include: tmux.yml tags=tmux
-- include: zsh.yml tags=zsh
-- include: fzf.yml tags=fzf
-- include: ugrep.yml tags=ugrep
-- include: weather.yml tags=weather
+- include: misc.yml 
+  tags: misc
+- include: tmux.yml 
+  tags: tmux
+- include: zsh.yml 
+  tags: zsh
+- include: fzf.yml 
+  tags: fzf
+- include: ugrep.yml 
+  tags: ugrep
+- include: weather.yml 
+  tags: weather

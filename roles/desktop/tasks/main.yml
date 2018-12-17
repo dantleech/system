@@ -1,7 +1,11 @@
 # - include: awesome.yml tags=awesome
-- include: i3.yml tags=i3
+- include: x.yml
+  tags: x
+- include: i3.yml
+  tags: i3
 - include: vimb.yml 
   tags: vimb
-- include: mpd.yml tags=mpd
+- include: mpd.yml 
+  tags: mpd
 - include: screensaver.yml tags=screensaver
 - include: screenshot.yml tags=screenshot

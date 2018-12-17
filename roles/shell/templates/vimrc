@@ -1,154 +1,105 @@
-set nocompatible               " be iMproved
 filetype off                   " required!
 
 " enable 256 colors
 set t_Co=256
 
-set rtp+=~/.vim/bundle/Vundle.vim
 set rtp+=~/.fzf
-let g:vundle_default_git_proto = 'git'
-call vundle#begin()
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin('~/.vim/plugged')
 
 " =============================== "
 " ======== Vundle Config ======== "
 
-Plugin 'tpope/vim-surround'
+Plug 'vim-vdebug/vdebug'
+Plug 'tpope/vim-surround'
+Plug 'mhinz/vim-grepper'
+Plug 'phpstan/vim-phpstan'
+Plug 'mbbill/undotree'
+Plug 'janko-m/vim-test'
 
-" Utility bundles
-Plugin 'L9'
-Plugin 'vim-scripts/tlib'
-Plugin 'Shougo/vimproc.vim'
-Plugin 'chase/vim-ansible-yaml'
+Plug 'vim-scripts/BufOnly.vim'
+
+"Plug 'roxma/nvim-completion-manager'
+
+Plug 'ncm2/ncm2'
+Plug 'roxma/nvim-yarp'
+Plug 'phpactor/phpactor' ,  {'do': 'composer install', 'for': 'php'}
+Plug 'phpactor/ncm2-phpactor'
+
+Plug 'sjl/gundo.vim'
+Plug 'mechatroner/rainbow_csv'
+
+Plug 'junegunn/vader.vim'
 
 " Preview images in ASCII
-" Plugin 'ashisha/image.vim'
+" Plug 'ashisha/image.vim'
 
 " Aligning
-Plugin 'godlygeek/tabular'
-
-" Plugin 'austintaylor/vim-commaobject'
-" Plugin 'beberlei/vim-php-refactor'
-
-" RST Tables
-"Plugin 'nvie/vim-rst-tables'
-
-" Generate PHPUnit tests
-Plugin 'dantleech/vim-phpunit'
-
-" Determine the namespace for the current file
-Plugin 'dantleech/vim-phpnamespace'
+Plug 'godlygeek/tabular'
 
 " Color scheme
-Plugin 'vim-scripts/twilight256.vim.git'
-" Plugin 'tomasr/molokai'
+ Plug 'vim-scripts/twilight256.vim'
 
 " Grep buffers
-Plugin 'Buffer-grep'
-
-" Easy motion - <Leader>ww = forward, <Leader>bb = backwards
-" Plugin 'Lokaltog/vim-easymotion'
-
-" Best snippets plugin
-Plugin 'Sirver/ultisnips'
-
-" Package manager
-Plugin 'gmarik/vundle'
-
-" phpcsfixer integration
-Plugin 'stephpy/vim-php-cs-fixer'
-
-" pdv - php documentor (docblocks)
-Plugin 'tobyS/pdv'
-Plugin 'tobyS/vmustache'
+Plug 'vim-scripts/Buffer-grep'
 
 " Ctrlp - quickly find files, tags and buffers using fuzzy search
-Plugin 'kien/ctrlp.vim'
+Plug 'kien/ctrlp.vim'
 
 " Twig syntax highlighting
-Plugin 'evidens/vim-twig'
+Plug 'lumiliet/vim-twig'
 
-" Tag bar shows methods and variables of current class (uses ctags)
-" Plugin 'majutsushi/tagbar'
-
-" Better javascript support
-Plugin 'pangloss/vim-javascript'
+Plug 'w0rp/ale'
 
 " Nerdtree file browser
-Plugin 'scrooloose/nerdtree'
-
-" Easily comment - <Leader>cc
-Plugin 'scrooloose/nerdcommenter'
-
-" Syntax checking on write
-Plugin 'scrooloose/syntastic'
-
-" Powerful PHP completion (uses ctags)
-Plugin 'shawncplus/phpcomplete.vim'
-" Plugin 'm2mdas/phpcomplete-extended' <-- nice, users composer. almost ideal. but buggy and adds latency when loading
-
-" YouCompleteMe
-Plugin 'Valloric/YouCompleteMe'
+Plug 'scrooloose/nerdtree'
 
 " Allows text replacement regardless of CaSe
-Plugin 'tpope/vim-abolish'
+Plug 'tpope/vim-abolish'
 
 " GiT integration: Gblame, Gread (reset to git state), Gstatus
-Plugin 'tpope/vim-fugitive'
-
-" Automatically insert use statements and expand class names to FQN
-Plugin 'arnaud-lb/vim-php-namespace'
-
-" Align anything
-" Plugin 'junegunn/vim-easy-align'
+Plug 'tpope/vim-fugitive'
 
 " Get GITHub activity
-Plugin 'junegunn/vim-github-dashboard'
+" Plug 'junegunn/vim-github-dashboard'
 
 " PHP Documentation - hit K (shift-k) on any php function
-Plugin 'mudpile45/vim-phpdoc'
+Plug 'mudpile45/vim-phpdoc'
 
 " Apply a command on every file in the quickfix list :Qdo %s/Foobar/Barfoo
-Plugin 'henrik/vim-qargs'
-
-" PHPSpec integration
-" Plugin 'Herzult/phpspec-vim.git'
-
-" Tern javascript thing
-Plugin 'marijnh/tern_for_vim'
+Plug 'henrik/vim-qargs'
 
 " Vdebug - PHP debugging
-Plugin 'joonty/vdebug'
-
-" phpunit skelgen
-" Plugin 'TsonJgoku/vim-phpunit-skelgen'
-
-" Cool status bar
-" Plugin 'bling/vim-airline'  # slow...
+" Plug 'joonty/vdebug'
 
 " Gist
-Plugin 'mattn/webapi-vim'
-Plugin 'mattn/gist-vim'
-
-" Refactoring
-Plugin 'adoy/vim-php-refactoring-toolbox'
-
-" Git gutter
-Plugin 'airblade/vim-gitgutter'
+" Plug 'mattn/webapi-vim'
+" Plug 'mattn/gist-vim'
 
 " Argument wrapping and unwrapping
-Plugin 'FooSoft/vim-argwrap'
+Plug 'FooSoft/vim-argwrap'
 
-" Search highlighting
-" Plugin 'timakro/vim-searchant'
+Plug 'matze/vim-move'
 
+"Plug 'prabirshrestha/async.vim'
+"Plug 'prabirshrestha/vim-lsp'
+"Plug 'roxma/LanguageServer-php-neovim',  {'do': 'composer install && composer run-script parse-stubs'}
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
 
-call vundle#end()
+Plug 'editorconfig/editorconfig-vim'
+
+call plug#end()
 
 " =============================== "
 " =========== Config ============ "
-
-" show TWIG highlighting
-au BufRead,BufNewFile *.twig set syntax=htmljinja
 
 " Automatically detect filetypes
 filetype plugin indent on
@@ -173,11 +124,14 @@ set incsearch
 " highlight search matches
 set hlsearch
 
-let $PATH=$PATH . ':' . expand('~/.composer/vendor/bin')
-let g:padawan#composer_command = "composer"
+" nerdtree
 let NERDTreeCascadeOpenSingleChildDir=0
 let NERDTreeCascadeSingleChildDir=0
+let NERDTreeWinSize=50
 
+" phpactor
+let g:phpactorBranch = "develop"
+let g:phpactorOmniError = v:true
 
 " set syntax highlighting options.
 syntax on
@@ -200,7 +154,7 @@ function! s:CloseIfOnlyNerdTreeLeft()
 endfunction
 
 " show TWIG highlighting
-" au BufRead,BufNewFile *.twig set syntax=htmljinja
+au BufRead,BufNewFile *.twig set syntax=twig
 
 scriptencoding utf-8
 set history=1000
@@ -234,27 +188,6 @@ let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_working_path_mode = ''
 let g:ctrlp_map = ''
 
-" Ultisnip
-let g:snips_author="Daniel Leech <daniel@dantleech.com>"
-
-" Syntastic
-let g:syntastic_javascript_checkers = ['jshint']
-let g:syntastic_php_checkers = ['php'] " , 'phpcs', 'phpmd']
-
-" php,pec-vim
-"
-let g:phpspec_run_cmd_options = '--verbose -fpretty'
-
-" Only get tags from CWD
-set tags=tags;
-set tags+=/usr/share/php/PHPUnit/tags
-" let g:phpcomplete_parse_docblock_comments = 1
-" let g:phpcomplete_complete_for_unknown_classes = 0
-
-" PHP Compoete extended
-" let g:phpcomplete_index_composer_command="composer"
-
-" Settings for rst / markdown
 autocmd FileType rst setlocal textwidth=78
 autocmd Filetype markdown setlocal textwidth=78
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
@@ -262,46 +195,21 @@ autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-autocmd FileType php setlocal omnifunc=phpactor#complete
+autocmd FileType php setlocal omnifunc=phpactor#Complete
+autocmd FileType cucumber setlocal omnifunc=phpactor#Complete
+"autocmd FileType php setlocal omnifunc=LanguageClient#complete
+"autocmd FileType php setlocal omnifunc=lsp#complete
 
-" Settings for php-cs-fixer
-let g:php_cs_fixer_path = "/usr/local/bin/phpcsfixer"
 
-" UltiSnips
-let g:UltiSnipsSnippetsDir="/home/daniel/.vim/UltiSnips/"
-let g:UltiSnipsExpandTrigger="<c-c>"
-
-" ======================== "
-" Neo complete config
-" ======================== "
-"
-"Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
-" Disable AutoComplPop.
-let g:acp_enableAtStartup = 0
-
-" phpunit test directory
-let g:phpunit_testroot = 'tests'
-
+autocmd CompleteDone * pclose
+set completeopt=noinsert,menuone,noselect
 
 " Color scheme
 color twilight256
-" color molokai
-" let g:rehash256 = 1
-" let g:molokai_original = 1
-
-" PDV config
-let g:pdv_template_dir = "/home/daniel/.vim/pdv_templates_snip"
-
-" Enable powerline fonts
-" let g:airline_powerline_fonts = 1
-" let g:airline#extensions#tabline#enabled = 0
-" let g:airline_section_y = airline#section#create_right(['ffenc', '%o'])
-
 
 " =============================== "
 " ===== Keyboard Mappings ======= "
-
-" Use "," as the <Leader> key
+let g:move_key_modifier = 'C'
 let mapleader=","
 
 " Toggle NERDTree file browser
@@ -314,10 +222,30 @@ map <Leader>f :NERDTreeFind <CR>
 map <Leader>t :TagbarToggle <CR>
 
 " Automatically add a use statement for class under cursor (uses ctags)
-map <Leader>u :call PhpInsertUse()<CR>
+map <silent><Leader>d :call phpactor#OffsetTypeInfo()<CR>
+map <silent><Leader>tt :call phpactor#Transform()<CR>
+map <silent><Leader>cc :call phpactor#ClassNew()<CR>
+map <silent><Leader>ci :call phpactor#ClassInflect()<CR>
+map <silent><Leader>rr :call phpactor#ClassReferences()<CR>
+map <silent><Leader>mm :call phpactor#ContextMenu()<CR>
+map <silent><Leader>nn :call phpactor#Navigate()<CR>
+map <silent><Leader>gg :call phpactor#Navigate()<CR>
+map <silent><Leader>pfm :call phpactor#MoveFile()<CR>
+map <silent><Leader>pfc :call phpactor#CopyFile()<CR>
+map <silent><Leader>ee :call phpactor#ExtractExpression(v:false)<CR>
+vmap <silent><Leader>em :<C-U>call phpactor#ExtractMethod()<CR>
+vmap <silent><Leader>ee :<C-U>call phpactor#ExtractExpression(v:true)<CR>
+nmap <Leader>u :call phpactor#UseAdd()<CR>
+nmap <Leader>e :call phpactor#ClassExpand()<CR>
+nmap <Leader>o :call phpactor#GotoDefinition()<CR>
+nmap <Leader>cv :call phpactor#ChangeVisibility()<CR>
+nmap <silent><Leader>K :call phpactor#Hover()<CR>
 
-" Expand the class under the cursor (uses ctags)
-map <Leader>e :call PhpExpandClass()<CR>
+nnoremap <silent><Leader>gd :call LanguageClient#textDocument_definition()<CR>
+"nnoremap <silent><Leader>K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent><Leader>s :call LanguageClient#textDocument_documentSymbol()<CR>
+
+nmap <Leader>v :Vader<CR>
 
 " Fuzzy search open buffers
 map <C-B> :CtrlPBuffer <CR>
@@ -325,14 +253,6 @@ map <C-B> :CtrlPBuffer <CR>
 map <C-T> :CtrlPTag <CR>
 " Fuzzy search all project filenames
 map <C-P> :FZF <CR>
-
-" map <C-p> :Unite file_rec/async<cr>
-" map <C-b> :Unite buffer <cr>
-" map <C-t> :Unite tag <cr>
-" map <Leader>g :Unite grep:.<cr>
-
-" Update ctags
-map <Leader>cp :!ctags --verbose <CR>
 
 " Reload the .vimrc config
 map <Leader>vr :so ~/.vimrc<CR>
@@ -342,32 +262,15 @@ map <Leader>ve :tabnew ~/.vimrc<CR>
 
 " Next quick fix item
 map <Leader>= :cnext<CR>
+map <Leader>+ :cnf<CR>
 
 " Previous quick fix item
 map <Leader>- :cprev<CR>
-
-" PHPCs Fixer
-nnoremap <silent><leader>pcd :call PhpCsFixerFixDirectory()<CR>
-nnoremap <silent><leader>pcf :call PhpCsFixerFixFile()<CR>
-
-" PDV PhpDocumentor
-nnoremap <silent><leader>dd :call pdv#DocumentWithSnip()<CR>
+map <Leader>) :cpf<CR>
 
 " Remap C-w C-w to C-w C-o, like in tmux
 nnoremap <C-w><C-o> <C-w><C-w>
 nnoremap <C-w>o <C-w><C-w>
-
-" Generate missing method
-nnoremap <silent><leader>mm :call phpactor#generate_snippet("implement_missing_methods")<CR>
-nnoremap <silent><leader>mp :call phpactor#generate_snippet("implement_missing_properties")<CR>
-
-" Generate PHPUnit test cases
-nnoremap <silent><leader>pt :call PhpunitGenerate()<CR>
-nnoremap <silent><leader>pp :call PhpunitRun()<CR>
-
-" Insert the current namespace
-nnoremap <silent><leader>nn :call PhpNamespaceInsert()<CR>
-
 nnoremap <silent> <leader>aw :ArgWrap<CR>
 
 func! AsciiMode()
@@ -377,3 +280,46 @@ func! AsciiMode()
     autocmd BufWritePre * :%s/\s\+$//e
 endfu
 com! ASC call AsciiMode()
+
+"let g:completor_php_omni_trigger = '(->\w{2,}|::\w*)'
+"let g:completor_disable_filename = 1
+"let g:completor_disable_buffer = 1
+"let g:completor_disable_ultisnips = 1
+
+" Nice colors for autocomplete
+highlight Pmenu ctermbg=black ctermfg=white  gui=bold
+
+"inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
+
+function! Align()
+  let p = '^\s*|\s.*\s|\s*$'
+  if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
+    let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
+    let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
+    Tabularize/|/l1
+    normal! 0
+    call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
+  endif
+endfunction
+
+"let g:LanguageClient_serverCommands = {
+"    \ 'php': ['tcp://127.0.0.1:8888']
+"    \}
+"let g:LanguageClient_serverCommands = {
+"    \ 'php': [ '/home/daniel/www/phpactor/phpactor/bin/phpactor', 'server:start', '--stdio', '--working-dir=' . getcwd()]
+"    \}
+"let g:LanguageClient_serverCommands = {
+"    \ 'php': ['php', '/home/daniel/www/felixfbecker/php-language-server/bin/php-language-server.php']
+"    \}
+
+let g:LanguageClient_loggingLevel = 'DEBUG'
+"let g:LanguageClient_loggingFile = 'lsp-client.log'
+let g:LanguageClient_completionPreferTextEdit = 1
+
+" enable ncm2 for all buffers
+autocmd BufEnter * call ncm2#enable_for_buffer()
+
+" ale
+let g:ale_linters = {'php': ['php', 'phpstan', 'phpmd']}
+let g:ale_php_phpstan_executable = './vendor/bin/phpstan'
+let g:ale_completion_enabled = 0

@@ -2,4 +2,4 @@
 
 # locate CharName.pm
 
-egrep -i "^[0-9a-f]{4,} .*$*" /usr/lib/x86_64-linux-gnu/perl5/5.20/Unicode/CharName.pm | while read h d; do /usr/bin/printf "\U$(printf "%08x" 0x$h)\tU+%s\t%s\n" $h "$d"; done
+egrep -i "^[0-9a-f]{4,} .*$*" /usr/lib/x86_64-linux-gnu/perl5/5.26/Unicode/CharName.pm | while read h d; do /usr/bin/printf "\U$(printf "%08x" 0x$h)\tU+%s\t%s\n" $h "$d"; done

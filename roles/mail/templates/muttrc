@@ -2,8 +2,8 @@
 # Header caching is a fine addition to any mutt.
 set header_cache=~/.mutt/hcache/
 
-set from={{ user.email }}
-set realname={{ user.fullname }}
+set from="{{ user.email }}"
+set realname="{{ user.fullname }}"
 
 # But body caching doesn't make so much sense with local mail.
 # The X-Label header changing dynamically also messes with this, so disable it.

@@ -4,3 +4,4 @@
 *.swm
 tags
 .phpcomplete_extended
+.phpactor.yml
